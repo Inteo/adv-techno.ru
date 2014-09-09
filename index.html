@@ -1,0 +1,602 @@
+<!doctype html>
+
+<head>
+  <meta charset="utf-8">
+  <title>AdvTechno</title>
+  <meta name="viewport" content="width=1010">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="/f/css/main.css">
+  <!--[if lte IE 9]><link rel="stylesheet" href="f/css/ie.css"><![endif]-->
+  <link rel="stylesheet" href="/f/fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="/f/css/jquery-ui.css">
+  <script src="/f/js/jquery-1.10.2.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+   <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Open+Sans:400,800,600&subset=all" rel="stylesheet">
+  <script src="/f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script src="/f/js/jquery-ui-1.10.4.min.js"></script>
+  <script src="/f/js/jquery.touchSwipe.min.js"></script>
+  <script src="/f/js/jquery.transit.min.js"></script>
+  <script src="/f/js/common.js"></script>
+  <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+  
+  $(function() {
+     var min = 50000;
+     var max = 50000000;
+     var def_min = 10000000;
+     var def_max = 30000000;
+     var min_pos = 0;
+     var max_pos = 0;
+
+     $("#slider-range").slider({
+       range: true,
+       min: min,
+       max: max,
+       values: [def_min, def_max],
+       step: min,
+       create: function( event, ui) {
+        min_pos = parseFloat($(".ui-slider-range").css("left")) + "%";
+        max_pos = parseFloat($(".ui-slider-range").css("width")) + parseFloat($(".ui-slider-range").css("left")) - 5 + "%";
+        if(parseFloat($(".ui-slider-range").css("left")) > 5){
+          min_pos = parseInt(min_pos) - 5 + "%";
+        }
+        if(parseFloat($(".ui-slider-range").css("width")) + parseFloat($(".ui-slider-range").css("left")) > 95){
+             max_pos = parseInt(max_pos - 10) + "%";
+        }
+        if(parseFloat($(".ui-slider-range").css("width")) < 5){
+            max_pos = parseInt(max_pos) + 5;
+            min_pos = parseInt(min_pos) - 5;
+        }
+        $(".b-list-popup-range__cur-min").css("left", min_pos);
+        $(".b-list-popup-range__cur-max").css("left", max_pos);
+        min = $("#slider-range").slider("values", 0);
+        max = $("#slider-range").slider("values", 1);
+        if(min >= 10000000){
+          min = (min/1000000).toFixed(1);
+          min = min + " млн."
+        }
+        if(max >= 10000000){
+          max = (max/1000000).toFixed(1);
+          max = max + " млн."
+        }
+        $(".b-list-popup-range__cur-min-value").text(min);
+        $(".b-list-popup-range__cur-max-value").text(max);
+       },
+       slide: slide,
+       stop: slide
+     });
+
+    function slide(){
+    min_pos = parseInt($(".ui-slider-range").css("left"));
+    max_pos = parseFloat($(".ui-slider-range").css("width")) + parseFloat($(".ui-slider-range").css("left")) - 40;
+    if(parseInt($(".ui-slider-range").css("left")) > 30){
+      min_pos = min_pos - 40;
+    }
+    if(parseFloat($(".ui-slider-range").css("width")) + parseFloat($(".ui-slider-range").css("left")) > 580){
+         max_pos = max_pos - 60;
+    }
+    if(parseFloat($(".ui-slider-range").css("width")) < 130){
+         max_pos = max_pos + 50;
+        min_pos = min_pos - 50;
+    }
+    $(".b-list-popup-range__cur-min").css("left", min_pos);
+    $(".b-list-popup-range__cur-max").css("left", max_pos);
+    min = $("#slider-range").slider("values", 0);
+    max = $("#slider-range").slider("values", 1);
+    if(min >= 10000000){
+      min = (min/1000000).toFixed(1);
+      min = min + " млн."
+    }
+    if(max >= 10000000){
+      max = (max/1000000).toFixed(1);
+      max = max + " млн."
+    }
+    $(".b-list-popup-range__cur-min-value").text(min);
+    $(".b-list-popup-range__cur-max-value").text(max);
+  }
+     
+   });
+  </script>
+</head>
+
+<body>
+  <div class="b-main">
+    <div class="b-header   clearfix">
+      <a href="/" class="b-header__logo">
+        <img src="/f/i/logo.png" alt="" class="b-header__logo-img">
+        <span class="b-header__logo-text">Передовые технологии</span>
+      </a>
+      <div class="b-header-btns">
+        <a href="#" class="b-header__btn b-header__btn_fvr iconize-fvr">
+          <span class="b-header-btn__text">Избранное</span>
+          <span class="b-header__btn-qty">7</span>
+        </a>
+        <a href="#" class="b-header__btn b-header__btn_qst iconize-qst">
+          <span class="b-header-btn__text">Задать вопрос</span>
+        </a>
+      </div>
+      <span class="b-header__phone iconize-phone">8 (800) 542 23 43</span>
+      <div class="b-header__menu-wrap">
+        <ul class="b-header__menu">
+          <li class="b-header__menu-item"><a href="#" class="iconize-catalog">Каталог</a>
+          </li>
+          <li class="b-header__menu-item"><a href="#">О компании</a>
+          </li>
+          <li class="b-header__menu-item"><a href="#">Партнеры</a>
+          </li>
+          <li class="b-header__menu-item"><a href="#">Новости</a>
+          </li>
+          <li class="b-header__menu-item"><a href="#">Контакты</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="b-main-banner">
+      <img src="/f/i/main-banner.jpg" alt="" class="b-main-banner__img">
+      <div class="b-main-banner__text-wrap">
+        <span class="b-main-banner__title">учебно-лабораторное оборудование</span>
+        <span class="b-main-banner__text">нового поколения.</span>
+      </div>
+    </div>
+    <form class="b-search">
+      <div class="b-search__submit-wrap">
+        <input id="b-search__submit" class="b-search__submit" type="submit" value="" />
+        <label for="b-search__submit" class="b-search__submit-label iconize-search"></label>
+      </div>
+      <div class="b-search__input-wrap">
+        <label for="search-input" class="input-hint">
+          <span class="input-hint">Введите специализацию</span>
+        </label>
+        <input class="b-search__input input-placeholder" id="search-input" type="text" value="" />
+        <span class="clear-text"></span>
+      </div>
+    </form>
+    <div class="b-spec">
+      <a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/1.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Автоматизация и мехатроника</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/2.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Автомобили и автомобильное хозяйство</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/3.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Аэродинамика</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/4.png" alt="" class="b-spec__img">
+        <spanclass="b-spec__text">Аэрокосмическая техника</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/5.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Биология</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/9.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Биотехнологии</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/6.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Вычислительная и микропроцессорная техника</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/7.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Коммуникации</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/8.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Медицина</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/10.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Науки о Земле</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/11.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Нефтегазовая промышленность</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/12.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Пищевые и водные технологии</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/13.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Прикладная оптика и фотоника</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/14.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Прикладная механика</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/15.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Пищевая химия</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/16.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Радиотехника, телекоммуникации и сети ЭВМ</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/17.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Робототехника</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/18.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Сельское хозяйство</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/19.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Строительство</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/20.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Термодинамика и термотехника</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/21.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Технология машиностроения и обработка материалов</span>
+      </a><a href="#" class="b-spec__item b-spec__item_magenta">
+        <img src="/f/i/qst-mark.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Подобрать оборудование<span>Укажите бюджет и специализации, и мы сами предложим решение, подходящие именно для вас</span></span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/22.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Транспорт</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/23.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Управление процессом</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/24.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Физика</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/25.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Химия</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/26.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Химические технологии</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/27.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Экология</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/28.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Энергетика</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/29.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Энергия</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/30.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Электроника</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/31.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Электричество</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/32.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Гидромеханика</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/33.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Материаловедение</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/34.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Полиграфия</span>
+      </a><a href="#" class="b-spec__item">
+        <img src="/f/i/spec-icons/35.png" alt="" class="b-spec__img">
+        <span class="b-spec__text">Окружающая среда</span>
+      </a>
+    </div>
+    <div class="b-footer clearfix">
+      <ul class="b-footer-menu">
+        <li class="b-footer-menu__item"><a href="#">Каталог</a></li>
+        <li class="b-footer-menu__item"><a href="#">О компании</a></li>
+        <li class="b-footer-menu__item"><a href="#">Партнеры</a></li>
+        <li class="b-footer-menu__item"><a href="#">Новости</a></li>
+        <li class="b-footer-menu__item"><a class="b-list-popup-link" href="#b-list-popup">Доставка</a></li>
+        <li class="b-footer-menu__item"><a class="b-question-popup-link" href="#b-question-popup">Вопросы и ответы</a></li>
+        <li class="b-footer-menu__item"><a class="b-question-ok-popup-link" href="#b-question-ok-popup">Контакты</a></li>
+        <li class="b-footer-menu__item b-footer-menu__item_phone"><span class="iconize-phone">8 (800) 542 23 43</span></li>
+      </ul>
+       <a href="#" class="b-footer-made-by">
+          <span class="b-footer-made-by__text">Создание сайта</span>
+          <span class="b-footer-made-by__img"></span>
+      </a>
+      <div class="b-footer-form-wrap">
+        <form action="" class="b-footer-form">
+          <span class="b-footer-form__title">Будьте в курсе передовых технологий образования!</span>
+          <div class="b-footer__input-wrap">
+            <label for="subscribe-input" class="input-hint input-hint_subscribe">
+              <span class="input-hint input-hint_subscribe">E-Mail</span>
+            </label>
+            <input class="b-footer-form__text input-placeholder" id="subscribe-input" type="text" value="" />
+            <span class="clear-text"></span>
+          </div>
+          <div class="b-footer-form__submit-wrap">
+           <input type="submit" id="b-footer-form__submit" class="b-footer-form__submit" value="Подписаться">
+           <label for="b-footer-form__submit" class="b-footer-form__label"></label>
+          </div>
+        </form>
+      </div>
+     
+    </div>
+  </div>
+  <div class="b-popups">
+    <div class="b-question-popup" id="b-question-popup">
+      <div class="b-popup-head">
+        <span class="b-popup-head__text iconize-qst">Задать вопрос</span>
+        <span class="popup__close iconize-close" onclick="fancy_close();"></span>
+      </div>
+      <div class="b-popup-wrap">
+        <div class="b-question-popup__input-wrap input-wrap">
+          <label for="b-question-popup__name-input" class="input-hint">
+            <span class="input-hint">Наименование учреждения</span>
+          </label>
+          <input class="b-question-popup__name-input input input-placeholder" id="b-question-popup__name-input" type="text" value="" />
+        </div>
+        <div class="b-question-popup__phone-input-wrap input-wrap">
+        <label for="b-question-popup__phone-input" class="input-hint">
+          <span class="input-hint">Телефон</span>
+        </label>
+        <input class="b-question-popup__phone-input input input-placeholder" id="b-question-popup__phone-input" type="text" value="" />
+      </div><div class="b-question-popup__email-input-wrap input-wrap">
+        <label for="b-question-popup__email-input" class="input-hint">
+          <span class="input-hint">E-Mail</span>
+        </label>
+        <input class="b-question-popup__email-input input input-placeholder" id="b-question-popup__email-input" type="text" value="" />
+      </div>
+     <!--  <div class="b-question-popup__email-input-wrap input-wrap iconize-input-correct">
+       <label for="b-question-popup__email-input" class="input-hint">
+         <span class="input-hint">E-Mail</span>
+       </label>
+       <input class="b-question-popup__email-input input input-placeholder" id="b-question-popup__email-input" type="text" value="" />
+       <span class="clear-text"></span>
+     </div> -->
+      <!-- <div class="b-question-popup__email-input-wrap input-wrap iconize-input-incorrect">
+        <label for="b-question-popup__email-input" class="input-hint">
+          <span class="input-hint">E-Mail</span>
+        </label>
+        <input class="b-question-popup__email-input input input-placeholder" id="b-question-popup__email-input" type="text" value="" />
+        <span class="clear-text"></span>
+      </div> -->
+      <div class="clearfix"></div>
+      <div class="b-question-popup__text-input-wrap input-wrap clearfix">
+        <label for="b-question-popup__text-input" class="input-hint">
+          <span class="input-hint">Ваш вопрос</span>
+        </label>
+        <textarea class="b-question-popup__text-input input input-placeholder" id="b-question-popup__text-input"></textarea>
+        <span class="clear-text"></span>
+      </div>
+      <div class="b-question-popup-btn-wrap">
+        <input type="submit" id="b-question-popup__submit" class="b-question-popup__submit magenta-btn" value="Отправить">
+        <!--<input type="submit" id="b-question-popup__submit" class="b-question-popup__submit magenta-btn_inactive magenta-btn" value="Отправить"> -->
+      </div>
+      </div>
+    </div>
+    <div class="b-question-ok-popup" id="b-question-ok-popup">
+      <div class="b-popup-wrap">
+        <span class="b-question-ok-popup__title popup__title">Ваш вопрос получен</span>
+        <span class="b-question-ok-popup__text">Мы свяжемся с Вами<br> в самое ближайшее время!</span>
+        <div class="b-question-ok-popup__btn">
+          <span class="magenta-btn" onclick="fancy_close();">Спасибо</span>
+        </div>
+      </div>
+    </div>
+    <form class="b-list-popup" id="b-list-popup">
+      <div class="b-list-popup-head">
+        <span class="b-list-popup-head__text iconize-qst2">Опросный лист</span>
+        <span class="popup__close iconize-close iconize-close_black" onclick="fancy_close();"></span>
+      </div>
+      <div class="b-popup-wrap">
+        <span class="b-list-popup__title b-list-popup__title_untop">Контактные данные</span>
+        <div class="b-list-popup__name-input-wrap input-wrap input-wrap_small">
+          <label for="b-list-popup__name-input" class="input-hint">
+            <span class="input-hint">Наименование учреждения</span>
+          </label>
+          <input class="b-list-popup__name-input input input-placeholder" id="b-list-popup__name-input" type="text" value="" />
+        </div><div class="b-list-popup__contact-input-wrap input-wrap input-wrap_small">
+          <label for="b-list-popup__contact-input" class="input-hint">
+            <span class="input-hint">Контактное лицо</span>
+          </label>
+          <input class="b-list-popup__contact-input input input-placeholder" id="b-list-popup__contact-input" type="text" value="" />
+        </div>
+        <div class="b-list-popup-left-wrap">
+          <div class="b-list-popup__phone-input-wrap input-wrap input-wrap_small">
+          <label for="b-list-popup__phone-input" class="input-hint">
+            <span class="input-hint">Телефон</span>
+          </label>
+          <input class="b-list-popup__phone-input input input-placeholder" id="b-list-popup__phone-input" type="text" value="" />
+        </div><div class="b-list-popup__email-input-wrap input-wrap input-wrap_small">
+          <label for="b-list-popup__email-input" class="input-hint">
+            <span class="input-hint">E-Mail</span>
+          </label>
+          <input class="b-list-popup__email-input input input-placeholder" id="b-list-popup__email-input" type="text" value="" />
+        </div>
+        </div>
+        <span class="b-list-popup__title">Сфера деятельности</span>
+        <div class="b-list-popup-radio-wrap">
+          <input id="param1" class="b-list-popup-radio radio" type="radio" name="list_radio" checked/>
+          <label class="b-list-popup-label label" for="param1">Образовательное учреждение</label>
+        </div>
+         <div class="b-list-popup-radio-wrap">
+          <input id="param2" class="b-list-popup-radio radio" type="radio" name="list_radio" />
+          <label class="b-list-popup-label label" for="param2">Учебный центр</label>
+        </div>
+         <div class="b-list-popup-radio-wrap">
+          <input id="param3" class="b-list-popup-radio radio" type="radio" name="list_radio" />
+          <label class="b-list-popup-label label" for="param3">Коммерческая организация</label>
+        </div>
+         <span class="b-list-popup__title">Планируемый бюджет</span>
+         <div id="slider-range" class="b-list-popup-range">
+           <span class="b-list-popup-range__min">50 000 <span class="rub">&#8377</span></span>
+           <span class="b-list-popup-range__max">50 млн. <span class="rub">&#8377</span></span>
+           <span class="b-list-popup-range__cur-min">От <span class="b-list-popup-range__cur-min-value">100 000</span><span class="rub"> &#8377</span></span>
+           <span class="b-list-popup-range__cur-max">До <span class="b-list-popup-range__cur-max-value">30 млн.</span><span class="rub"> &#8377</span></span>
+         </div>
+          <p class="b-list-popup-range__hint">Если у вас выделен определенный бюджет, вы можете отталкиваться от него</p>
+          <span class="b-list-popup__title b-list-popup__title_untop">Специальности</span>
+          <ul class="b-list-popup-spec">
+            <li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param4" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param4">Автоматизация и мехатроника</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param5" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param5">Автомобили и автомобильное хозяйство</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param6" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param6">Аэродинамика</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param7" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param7">Аэрокосмическая техника</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param8" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param8">Биология</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param9" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param9">Биотехнологии</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param10" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param10">Вычислительная и микропроцессорная техника. Схемотехника</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param11" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param11">Коммуникации</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param12" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param12">Медицина</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param13" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param13">Науки о Земле</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param14" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param14">Нефтегазовая промышленность</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param15" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param15">Пищевые и водные технологии</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param16" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param16">Прикладная оптика - фотоника</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param17" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param17">Прикладная механика</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param34" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param34">Пищевая химия</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param18" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param18">Радиотехника. Телекоммуникации. Сети ЭВМ</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param19" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param19">Робототехника</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param20" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param20">Сельское хозяйство</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param21" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param21">Строительство</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param22" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param22">Термодинамика и Термотехника</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param23" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param23">Технология машиностроения. Обработка материалов</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param24" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param24">Транспорт</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param25" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param25">Управление Процессом</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param26" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param26">Физика</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param27" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param27">Химия</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param28" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param28">Химические технологии</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param29" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param29">Экология</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param30" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param30">Энергетика</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param31" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param31">Энергия</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param32" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param32">Электроника</label>
+              </div>
+            </li><li class="b-list-popup-spec__item">
+              <div class="b-list-popup-radio-wrap">
+                <input id="param33" class="checkbox" type="checkbox" name="list_check"/>
+                <label class="label" for="param33">Другое</label>
+              </div>
+            </li>
+          </ul>
+          <span class="b-list-popup__title">Планируемый штат учащихся / сотрудников</span>
+          <div class="b-list-popup__staff-input-wrap input-wrap input-wrap_small">
+            <label for="b-list-popup__staff-input" class="input-hint">
+              <span class="input-hint">Количество мест</span>
+            </label>
+            <input class="b-list-popup__staff-input input input-placeholder" id="b-list-popup__staff-input" type="text" value="" />
+          </div>
+          <span class="b-list-popup__staff-qty">шт.</span>
+          <div class="b-list-popup__submit-wrap">
+           <input type="submit" id="b-list-popup__submit" class="b-list-popup__submit magenta-btn" value="Отправить">
+          </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
