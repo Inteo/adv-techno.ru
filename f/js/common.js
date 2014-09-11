@@ -431,9 +431,91 @@
    $(".b-spec__item").height($(".b-spec__item").width());
  }
  $(window).resize(function() {
+
    spec_resize();
  });
 
  function fancy_close() {
    $.fancybox.close();
  }
+
+ $(function() {
+     var min = 50000;
+     var max = 50000000;
+     var def_min = 10000000;
+     var def_max = 30000000;
+     var min_pos = 0;
+     var max_pos = 0;
+
+     $("#slider-range").slider({
+       range: true,
+       min: min,
+       max: max,
+       values: [def_min, def_max],
+       step: min,
+       create: function( event, ui) {
+        min_pos = parseFloat($(".ui-slider-range").css("left")) + "%";
+        max_pos = parseFloat($(".ui-slider-range").css("width")) + parseFloat($(".ui-slider-range").css("left")) - 5 + "%";
+        if(parseFloat($(".ui-slider-range").css("left")) > 5){
+          min_pos = parseInt(min_pos) - 5 + "%";
+        }
+        if(parseFloat($(".ui-slider-range").css("width")) + parseFloat($(".ui-slider-range").css("left")) > 95){
+             max_pos = parseInt(max_pos - 10) + "%";
+        }
+        if(parseFloat($(".ui-slider-range").css("width")) < 5){
+            max_pos = parseInt(max_pos) + 5;
+            min_pos = parseInt(min_pos) - 5;
+        }
+        $(".b-list-popup-range__cur-min").css("left", min_pos);
+        $(".b-list-popup-range__cur-max").css("left", max_pos);
+        min = $("#slider-range").slider("values", 0);
+        max = $("#slider-range").slider("values", 1);
+        if(min >= 10000000){
+          min = (min/1000000).toFixed(1);
+          min = min + " млн."
+        }
+        if(max >= 10000000){
+          max = (max/1000000).toFixed(1);
+          max = max + " млн."
+        }
+        $(".b-list-popup-range__cur-min-value").text(min);
+        $(".b-list-popup-range__cur-max-value").text(max);
+       },
+       slide: slide,
+       stop: slide
+     });
+
+    function slide(){
+    min_pos = parseInt($(".ui-slider-range").css("left"));
+    max_pos = parseFloat($(".ui-slider-range").css("width")) + parseFloat($(".ui-slider-range").css("left")) - 40;
+    if(parseInt($(".ui-slider-range").css("left")) > 30){
+      min_pos = min_pos - 40;
+    }
+    if(parseFloat($(".ui-slider-range").css("width")) + parseFloat($(".ui-slider-range").css("left")) > 580){
+         max_pos = max_pos - 60;
+    }
+    if(parseFloat($(".ui-slider-range").css("width")) < 130){
+         max_pos = max_pos + 50;
+        min_pos = min_pos - 50;
+    }
+    $(".b-list-popup-range__cur-min").css("left", min_pos);
+    $(".b-list-popup-range__cur-max").css("left", max_pos);
+    min = $("#slider-range").slider("values", 0);
+    max = $("#slider-range").slider("values", 1);
+    if(min >= 10000000){
+      min = (min/1000000).toFixed(1);
+      min = min + " млн."
+    }
+    if(max >= 10000000){
+      max = (max/1000000).toFixed(1);
+      max = max + " млн."
+    }
+    $(".b-list-popup-range__cur-min-value").text(min);
+    $(".b-list-popup-range__cur-max-value").text(max);
+  }
+     
+     $(".switcher__item").click(function(){
+        $(this).parent(".switcher").children(".switcher__item").removeClass("switcher__item_active");
+        $(this).addClass("switcher__item_active");
+     });
+   });

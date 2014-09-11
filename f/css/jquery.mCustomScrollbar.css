@@ -41,7 +41,6 @@ CONTENTS:
 		overflow: hidden;
 		width: auto;
 		height: auto;
-		padding-left: 3px;
 	}
 
 
@@ -53,7 +52,7 @@ y-axis
 ------------------------------------------------------------------------------------------------------------------------
 */
 
-	.mCSB_inside > .mCSB_container{ margin-right: 30px; }
+	.mCSB_inside > .mCSB_container{ margin-right: 9px; }
 
 	.mCSB_container.mCS_no_scrollbar_y.mCS_y_hidden{ margin-right: 0; } /* non-visible scrollbar */
 	
@@ -66,7 +65,7 @@ y-axis
 
 	.mCSB_scrollTools{ /* contains scrollbar markup (draggable element, dragger rail, buttons etc.) */
 		position: absolute;
-		width: 16px;
+		width: 9px;
 		height: auto;
 		left: auto;
 		top: 0;
@@ -96,9 +95,10 @@ y-axis
 	.mCSB_scrollTools a + .mCSB_draggerContainer{ margin: 40px 0; }
 
 	.mCSB_scrollTools .mCSB_draggerRail{
-		width: 2px;
+		width: 9px;
 		height: 100%;
 		margin: 0 auto;
+		background: #000;
 	}
 
 	.mCSB_scrollTools .mCSB_dragger{ /* the draggable element */
@@ -110,8 +110,8 @@ y-axis
 
 	.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ /* the dragger element */
 		position: relative;
-		width: 4px;
-
+		width: 9px;
+		height: 170px;
 		margin: 0 auto;
 		text-align: center;
 	}
@@ -365,19 +365,19 @@ yx-axis
 	.mCS-autoHide:hover > .mCustomScrollBox ~ .mCSB_scrollTools{ opacity: 1; filter: "alpha(opacity=100)"; -ms-filter: "alpha(opacity=100)"; }
 
 	.mCSB_scrollTools .mCSB_draggerRail{
-		background-color: #f7f9f9;  
+		background-color: #000;  
 	}
 
 	.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
-		background-color: #e9eff0; 
+		background-color: #00aad5; 
 	}
 
 	.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
-		background-color: #e9eff0; 
+		background-color: #21caf5; 
 	}
 	.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
 	.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{
-		background-color: #e9eff0; 
+		background-color: #21caf5; 
 	}
 
 	.mCSB_scrollTools .mCSB_buttonUp,

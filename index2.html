@@ -20,14 +20,26 @@
   <script src="/f/js/jquery.touchSwipe.min.js"></script>
   <script src="/f/js/jquery.transit.min.js"></script>
   <script src="/f/js/common.js"></script>
+  <script src="/f/js/isotope.pkgd.min.js"></script>
   <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  <script>
+   $(function() {
+    var $container = $(".b-spec").isotope({
+    });
+    // filter items on button click
+    $(".b-catalog-switcher__item").click(function() {
+      var filterValue = $(this).attr("data-filter");
+      $container.isotope({ filter: filterValue });
+    });
+  });
+  </script>
 </head>
 
 <body>
   <div class="b-main">
-    <div class="b-header b-header_main clearfix">
+    <div class="b-header   clearfix">
       <a href="/" class="b-header__logo">
-        <img src="/f/i/logo.png" alt="" class="b-header__logo-img">
+        <img src="/f/i/logo-small.png" alt="" class="b-header__logo-img">
         <span class="b-header__logo-text">Передовые технологии</span>
       </a>
       <div class="b-header-btns">
@@ -37,6 +49,9 @@
         </a>
         <a href="#" class="b-header__btn b-header__btn_qst iconize-qst">
           <span class="b-header-btn__text">Задать вопрос</span>
+        </a>
+        <a href="#" class="b-header__btn b-header__btn_search iconize-search">
+          <span class="b-header-btn__text">Поиск</span>
         </a>
       </div>
       <span class="b-header__phone iconize-phone">8 (800) 542 23 43</span>
@@ -55,18 +70,7 @@
         </ul>
       </div>
     </div>
-    <div class="b-main-banner">
-      <img src="/f/i/main-banner.jpg" alt="" class="b-main-banner__img">
-      <div class="b-main-banner__text-wrap">
-        <span class="b-main-banner__title">учебно-лабораторное оборудование</span>
-        <span class="b-main-banner__text">нового поколения.</span>
-      </div>
-    </div>
     <form class="b-search">
-      <div class="b-search__submit-wrap">
-        <input id="b-search__submit" class="b-search__submit" type="submit" value="" />
-        <label for="b-search__submit" class="b-search__submit-label iconize-search"></label>
-      </div>
       <div class="b-search__input-wrap">
         <label for="search-input" class="input-hint">
           <span class="input-hint">Введите специализацию</span>
@@ -75,113 +79,124 @@
         <span class="clear-text"></span>
       </div>
     </form>
+    <div class="b-catalog-switcher switcher">
+        <div class="b-catalog-switcher__item switcher__item switcher__item_active" data-filter="*">
+          <span class="b-catalog-switcher__item-text">Все призводители</span>
+        </div><div class="b-catalog-switcher__item switcher__item" data-filter=".df1">
+          <span class="b-catalog-switcher__item-icon switcher__item-icon switcher__item-icon_1"></span>
+        </div><div class="b-catalog-switcher__item switcher__item" data-filter=".df2">
+           <span class="b-catalog-switcher__item-icon switcher__item-icon switcher__item-icon_2"></span>
+        </div><div class="b-catalog-switcher__item switcher__item" data-filter=".df3">
+           <span class="b-catalog-switcher__item-icon switcher__item-icon switcher__item-icon_3"></span>
+        </div>
+    </div>
     <div class="b-spec">
-      <a href="#" class="b-spec__item">
+      <a href="#" class="b-spec__item df1">
         <img src="/f/i/spec-icons/1.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Автоматизация и мехатроника</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df3">
         <img src="/f/i/spec-icons/2.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Автомобили и автомобильное хозяйство</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df2">
         <img src="/f/i/spec-icons/3.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Аэродинамика</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df3">
         <img src="/f/i/spec-icons/4.png" alt="" class="b-spec__img">
-        <spanclass="b-spec__text">Аэрокосмическая техника</span>
-      </a><a href="#" class="b-spec__item">
+        <span class="b-spec__text">Аэрокосмическая техника</span>
+      </a><a href="#" class="b-spec__item df1">
         <img src="/f/i/spec-icons/5.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Биология</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df1">
         <img src="/f/i/spec-icons/9.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Биотехнологии</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df2">
         <img src="/f/i/spec-icons/6.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Вычислительная и микропроцессорная техника</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df1 df2">
         <img src="/f/i/spec-icons/7.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Коммуникации</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df1">
         <img src="/f/i/spec-icons/8.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Медицина</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df1">
         <img src="/f/i/spec-icons/10.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Науки о Земле</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df3">
         <img src="/f/i/spec-icons/11.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Нефтегазовая промышленность</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df1">
         <img src="/f/i/spec-icons/12.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Пищевые и водные технологии</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df2">
         <img src="/f/i/spec-icons/13.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Прикладная оптика и фотоника</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df1">
         <img src="/f/i/spec-icons/14.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Прикладная механика</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df1">
         <img src="/f/i/spec-icons/15.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Пищевая химия</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df1">
         <img src="/f/i/spec-icons/16.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Радиотехника, телекоммуникации и сети ЭВМ</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df1">
         <img src="/f/i/spec-icons/17.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Робототехника</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df3">
         <img src="/f/i/spec-icons/18.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Сельское хозяйство</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df1">
         <img src="/f/i/spec-icons/19.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Строительство</span>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/20.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Термодинамика и термотехника</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df2">
         <img src="/f/i/spec-icons/21.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Технология машиностроения и обработка материалов</span>
       </a><a href="#" class="b-spec__item b-spec__item_magenta">
         <img src="/f/i/qst-mark.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Подобрать оборудование<span>Укажите бюджет и специализации, и мы сами предложим решение, подходящие именно для вас</span></span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df3">
         <img src="/f/i/spec-icons/22.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Транспорт</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df1 df3">
         <img src="/f/i/spec-icons/23.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Управление процессом</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df3">
         <img src="/f/i/spec-icons/24.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Физика</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df3">
         <img src="/f/i/spec-icons/25.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Химия</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df3">
         <img src="/f/i/spec-icons/26.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Химические технологии</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df2 df3">
         <img src="/f/i/spec-icons/27.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Экология</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df3">
         <img src="/f/i/spec-icons/28.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Энергетика</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df3">
         <img src="/f/i/spec-icons/29.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Энергия</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df3">
         <img src="/f/i/spec-icons/30.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Электроника</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df2">
         <img src="/f/i/spec-icons/31.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Электричество</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df3">
         <img src="/f/i/spec-icons/32.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Гидромеханика</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df3">
         <img src="/f/i/spec-icons/33.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Материаловедение</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df1">
         <img src="/f/i/spec-icons/34.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Полиграфия</span>
-      </a><a href="#" class="b-spec__item">
+      </a><a href="#" class="b-spec__item df2">
         <img src="/f/i/spec-icons/35.png" alt="" class="b-spec__img">
         <span class="b-spec__text">Окружающая среда</span>
       </a>
