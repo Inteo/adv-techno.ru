@@ -1,5 +1,4 @@
 ﻿ $(function() {
-
    $(document).click(function() {
      $(".wrapper-dropdown-3").removeClass("active");
    });
@@ -314,7 +313,6 @@
 
  $(document).ready(function() {
    spec_resize();
-
    $("input[type=number]").keydown(function(e) {
      // Allow: backspace, delete, tab, escape, enter and .
      if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
@@ -425,14 +423,25 @@
        }
      }
    });
+   var timer = 0;
+   $(".scroll-btn").hover(function(){
+    var self = $(this);
+    timer = setTimeout(function() {
+      self.find("span[class*='__text']").show();
+    }, 200);
+   },
+   function(){
+     clearTimeout(timer);
+     $(this).find("span[class*='__text']").hide();
+   }
+   );
  });
 
  function spec_resize() {
-   $(".b-spec__item").height($(".b-spec__item").width());
+  $(".b-spec__item").height($(".b-spec__item").width());
  }
  $(window).resize(function() {
-
-   spec_resize();
+    spec_resize();
  });
 
  function fancy_close() {
@@ -442,8 +451,8 @@
  $(function() {
      var min = 50000;
      var max = 50000000;
-     var def_min = 10000000;
-     var def_max = 30000000;
+     var def_min = 30000000;
+     var def_max = 36000000;
      var min_pos = 0;
      var max_pos = 0;
 
@@ -455,16 +464,16 @@
        step: min,
        create: function( event, ui) {
         min_pos = parseFloat($(".ui-slider-range").css("left")) + "%";
-        max_pos = parseFloat($(".ui-slider-range").css("width")) + parseFloat($(".ui-slider-range").css("left")) - 5 + "%";
+        max_pos = parseFloat($(".ui-slider-range").css("width")) + parseFloat($(".ui-slider-range").css("left")) - 7 + "%";
         if(parseFloat($(".ui-slider-range").css("left")) > 5){
-          min_pos = parseInt(min_pos) - 5 + "%";
+          min_pos = parseInt(min_pos) - 7 + "%";
         }
         if(parseFloat($(".ui-slider-range").css("width")) + parseFloat($(".ui-slider-range").css("left")) > 95){
-             max_pos = parseInt(max_pos - 10) + "%";
+             max_pos = parseInt(max_pos) - 10 + "%";
         }
-        if(parseFloat($(".ui-slider-range").css("width")) < 5){
-            max_pos = parseInt(max_pos) + 5;
-            min_pos = parseInt(min_pos) - 5;
+        if(parseFloat($(".ui-slider-range").css("width")) < 15){
+            max_pos = parseInt(max_pos) + 8 + "%";
+            min_pos = parseInt(min_pos) - 10 + "%";
         }
         $(".b-list-popup-range__cur-min").css("left", min_pos);
         $(".b-list-popup-range__cur-max").css("left", max_pos);
@@ -487,16 +496,16 @@
 
     function slide(){
     min_pos = parseInt($(".ui-slider-range").css("left"));
-    max_pos = parseFloat($(".ui-slider-range").css("width")) + parseFloat($(".ui-slider-range").css("left")) - 40;
+    max_pos = parseFloat($(".ui-slider-range").css("width")) + parseFloat($(".ui-slider-range").css("left")) - 50;
     if(parseInt($(".ui-slider-range").css("left")) > 30){
-      min_pos = min_pos - 40;
+      min_pos = min_pos - 50;
     }
     if(parseFloat($(".ui-slider-range").css("width")) + parseFloat($(".ui-slider-range").css("left")) > 580){
-         max_pos = max_pos - 60;
+         max_pos = max_pos - 50;
     }
     if(parseFloat($(".ui-slider-range").css("width")) < 130){
          max_pos = max_pos + 50;
-        min_pos = min_pos - 50;
+        min_pos = min_pos - 70;
     }
     $(".b-list-popup-range__cur-min").css("left", min_pos);
     $(".b-list-popup-range__cur-max").css("left", max_pos);

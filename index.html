@@ -19,6 +19,7 @@
   <script src="/f/js/jquery-ui-1.10.4.min.js"></script>
   <script src="/f/js/jquery.touchSwipe.min.js"></script>
   <script src="/f/js/jquery.transit.min.js"></script>
+  <script src="/f/js/jquery.valid8.source.js"></script>
   <script src="/f/js/common.js"></script>
   <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
 </head>
@@ -28,18 +29,18 @@
     <div class="b-header b-header_main clearfix">
       <a href="/" class="b-header__logo">
         <img src="/f/i/logo.png" alt="" class="b-header__logo-img">
-        <span class="b-header__logo-text">Передовые технологии</span>
+        <p class="b-header__logo-text">Передовые технологии</p>
       </a>
       <div class="b-header-btns">
-        <a href="#" class="b-header__btn b-header__btn_fvr iconize-fvr">
-          <span class="b-header-btn__text">Избранное</span>
+        <div class="scroll-btn_fvr scroll-btn iconize-fvr">
+          <span class="scroll-btn__text">Избранное</span>
           <span class="b-header__btn-qty">7</span>
-        </a>
-        <a href="#" class="b-header__btn b-header__btn_qst iconize-qst">
-          <span class="b-header-btn__text">Задать вопрос</span>
-        </a>
+        </div>
+        <div class="scroll-btn_qst scroll-btn iconize-qst">
+          <span class="scroll-btn__text">Задать вопрос</span>
+        </div>
       </div>
-      <span class="b-header__phone iconize-phone">8 (800) 542 23 43</span>
+      <div class="b-header__phone iconize-phone">8 (800) 542 23 43</div>
       <div class="b-header__menu-wrap">
         <ul class="b-header__menu">
           <li class="b-header__menu-item"><a href="#" class="iconize-catalog">Каталог</a>
@@ -57,10 +58,10 @@
     </div>
     <div class="b-main-banner">
       <img src="/f/i/main-banner.jpg" alt="" class="b-main-banner__img">
-      <div class="b-main-banner__text-wrap">
-        <span class="b-main-banner__title">учебно-лабораторное оборудование</span>
-        <span class="b-main-banner__text">нового поколения.</span>
-      </div>
+      <h1 class="b-main-banner__text-wrap">
+        <p class="b-main-banner__title">учебно-лабораторное оборудование</p>
+        <p class="b-main-banner__text">нового поколения.</p>
+      </h1>
     </div>
     <form class="b-search">
       <div class="b-search__submit-wrap">
@@ -71,119 +72,119 @@
         <label for="search-input" class="input-hint">
           <span class="input-hint">Введите специализацию</span>
         </label>
-        <input class="b-search__input input-placeholder" id="search-input" type="text" value="" />
+        <input class="b-search__input input-placeholder" id="search-input" type="search" value="" />
         <span class="clear-text"></span>
       </div>
     </form>
     <div class="b-spec">
       <a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/1.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Автоматизация и мехатроника</span>
+        <p class="b-spec__text">Автоматизация и мехатроника</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/2.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Автомобили и автомобильное хозяйство</span>
+        <p class="b-spec__text">Автомобили и автомобильное хозяйство</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/3.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Аэродинамика</span>
+        <p class="b-spec__text">Аэродинамика</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/4.png" alt="" class="b-spec__img">
-        <spanclass="b-spec__text">Аэрокосмическая техника</span>
+        <p class="b-spec__text">Аэрокосмическая техника</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/5.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Биология</span>
+        <p class="b-spec__text">Биология</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/9.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Биотехнологии</span>
+        <p class="b-spec__text">Биотехнологии</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/6.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Вычислительная и микропроцессорная техника</span>
+        <p class="b-spec__text">Вычислительная и микропроцессорная техника</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/7.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Коммуникации</span>
+        <p class="b-spec__text">Коммуникации</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/8.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Медицина</span>
+        <p class="b-spec__text">Медицина</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/10.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Науки о Земле</span>
+        <p class="b-spec__text">Науки о Земле</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/11.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Нефтегазовая промышленность</span>
+        <p class="b-spec__text">Нефтегазовая промышленность</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/12.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Пищевые и водные технологии</span>
+        <p class="b-spec__text">Пищевые и водные технологии</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/13.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Прикладная оптика и фотоника</span>
+        <p class="b-spec__text">Прикладная оптика и фотоника</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/14.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Прикладная механика</span>
+        <p class="b-spec__text">Прикладная механика</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/15.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Пищевая химия</span>
+        <p class="b-spec__text">Пищевая химия</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/16.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Радиотехника, телекоммуникации и сети ЭВМ</span>
+        <p class="b-spec__text">Радиотехника, телекоммуникации и сети ЭВМ</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/17.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Робототехника</span>
+        <p class="b-spec__text">Робототехника</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/18.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Сельское хозяйство</span>
+        <p class="b-spec__text">Сельское хозяйство</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/19.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Строительство</span>
+        <p class="b-spec__text">Строительство</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/20.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Термодинамика и термотехника</span>
+        <p class="b-spec__text">Термодинамика и термотехника</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/21.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Технология машиностроения и обработка материалов</span>
+        <p class="b-spec__text">Технология машиностроения и обработка материалов</p>
       </a><a href="#" class="b-spec__item b-spec__item_magenta">
         <img src="/f/i/qst-mark.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Подобрать оборудование<span>Укажите бюджет и специализации, и мы сами предложим решение, подходящие именно для вас</span></span>
+        <p class="b-spec__text">Подобрать оборудование<span class="b-spec__text_normal">Укажите бюджет и специализации, и мы сами предложим решение, подходящие именно для вас</span></p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/22.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Транспорт</span>
+        <p class="b-spec__text">Транспорт</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/23.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Управление процессом</span>
+        <p class="b-spec__text">Управление процессом</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/24.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Физика</span>
+        <p class="b-spec__text">Физика</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/25.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Химия</span>
+        <p class="b-spec__text">Химия</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/26.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Химические технологии</span>
+        <p class="b-spec__text">Химические технологии</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/27.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Экология</span>
+        <p class="b-spec__text">Экология</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/28.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Энергетика</span>
+        <p class="b-spec__text">Энергетика</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/29.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Энергия</span>
+        <p class="b-spec__text">Энергия</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/30.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Электроника</span>
+        <p class="b-spec__text">Электроника</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/31.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Электричество</span>
+        <p class="b-spec__text">Электричество</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/32.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Гидромеханика</span>
+        <p class="b-spec__text">Гидромеханика</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/33.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Материаловедение</span>
+        <p class="b-spec__text">Материаловедение</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/34.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Полиграфия</span>
+        <p class="b-spec__text">Полиграфия</p>
       </a><a href="#" class="b-spec__item">
         <img src="/f/i/spec-icons/35.png" alt="" class="b-spec__img">
-        <span class="b-spec__text">Окружающая среда</span>
+        <p class="b-spec__text">Окружающая среда</p>
       </a>
     </div>
     <div class="b-footer clearfix">
@@ -199,16 +200,16 @@
       </ul>
        <a href="#" class="b-footer-made-by">
           <span class="b-footer-made-by__text">Создание сайта</span>
-          <span class="b-footer-made-by__img"></span>
+          <div class="b-footer-made-by__img"></div>
       </a>
       <div class="b-footer-form-wrap">
         <form action="" class="b-footer-form">
-          <span class="b-footer-form__title">Будьте в курсе передовых технологий образования!</span>
+          <p class="b-footer-form__title">Будьте в курсе передовых технологий образования!</p>
           <div class="b-footer__input-wrap">
             <label for="subscribe-input" class="input-hint input-hint_subscribe">
               <span class="input-hint input-hint_subscribe">E-Mail</span>
             </label>
-            <input class="b-footer-form__text input-placeholder" id="subscribe-input" type="text" value="" />
+            <input class="b-footer-form__text input-placeholder" id="subscribe-input" type="email" value="" />
             <span class="clear-text"></span>
           </div>
           <div class="b-footer-form__submit-wrap">
@@ -237,25 +238,25 @@
         <label for="b-question-popup__phone-input" class="input-hint">
           <span class="input-hint">Телефон</span>
         </label>
-        <input class="b-question-popup__phone-input input input-placeholder" id="b-question-popup__phone-input" type="text" value="" />
+        <input class="b-question-popup__phone-input input input-placeholder" id="b-question-popup__phone-input" type="tel" value="" />
       </div><div class="b-question-popup__email-input-wrap input-wrap">
         <label for="b-question-popup__email-input" class="input-hint">
           <span class="input-hint">E-Mail</span>
         </label>
-        <input class="b-question-popup__email-input input input-placeholder" id="b-question-popup__email-input" type="text" value="" />
+        <input class="b-question-popup__email-input input input-placeholder" id="b-question-popup__email-input" type="email" value="" />
       </div>
      <!--  <div class="b-question-popup__email-input-wrap input-wrap iconize-input-correct">
        <label for="b-question-popup__email-input" class="input-hint">
          <span class="input-hint">E-Mail</span>
        </label>
-       <input class="b-question-popup__email-input input input-placeholder" id="b-question-popup__email-input" type="text" value="" />
+       <input class="b-question-popup__email-input input input-placeholder" id="b-question-popup__email-input" type="email" value="" />
        <span class="clear-text"></span>
      </div> -->
       <!-- <div class="b-question-popup__email-input-wrap input-wrap iconize-input-incorrect">
         <label for="b-question-popup__email-input" class="input-hint">
           <span class="input-hint">E-Mail</span>
         </label>
-        <input class="b-question-popup__email-input input input-placeholder" id="b-question-popup__email-input" type="text" value="" />
+        <input class="b-question-popup__email-input input input-placeholder" id="b-question-popup__email-input" type="email" value="" />
         <span class="clear-text"></span>
       </div> -->
       <div class="clearfix"></div>
@@ -304,12 +305,12 @@
           <label for="b-list-popup__phone-input" class="input-hint">
             <span class="input-hint">Телефон</span>
           </label>
-          <input class="b-list-popup__phone-input input input-placeholder" id="b-list-popup__phone-input" type="text" value="" />
+          <input class="b-list-popup__phone-input input input-placeholder" id="b-list-popup__phone-input" type="tel" value="" />
         </div><div class="b-list-popup__email-input-wrap input-wrap input-wrap_small">
           <label for="b-list-popup__email-input" class="input-hint">
             <span class="input-hint">E-Mail</span>
           </label>
-          <input class="b-list-popup__email-input input input-placeholder" id="b-list-popup__email-input" type="text" value="" />
+          <input class="b-list-popup__email-input input input-placeholder" id="b-list-popup__email-input" type="email" value="" />
         </div>
         </div>
         <span class="b-list-popup__title">Сфера деятельности</span>
