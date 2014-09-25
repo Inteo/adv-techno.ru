@@ -15,124 +15,14 @@
   <link rel="stylesheet" href="/f/css/jquery.mCustomScrollbar.css">
   <script src="/f/js/jquery-1.10.2.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
-   <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Open+Sans:400,800,600&subset=all" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Open+Sans:400,800,600&subset=all" rel="stylesheet">
   <script src="/f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
   <script src="/f/js/jquery-ui-1.10.4.min.js"></script>
   <script src="/f/js/jquery.touchSwipe.min.js"></script>
   <script src="/f/js/jquery.transit.min.js"></script>
-   <script src="/f/js/jquery.mCustomScrollbar.js"></script>
+  <script src="/f/js/jquery.mCustomScrollbar.js"></script>
   <script src="/f/js/common.js"></script>
   <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
-  <script>
-    function section_resize(){
-      var doc_w = $(document).width();
-      if(doc_w < 1000){
-        doc_w = 1000;
-      }
-      var pct_w = parseInt(doc_w)/100*80;
-      $(".b-spec_scroll").width(pct_w);
-      $(".b-section").width(doc_w);
-      $(".b-content").width(pct_w + doc_w);
-    }
-    function scroll_right(){
-      var doc_w = $(document).width();
-      if(doc_w < 1000){
-        doc_w = 1000;
-      }
-      var pct_w = parseInt(doc_w)/100*80;
-      var cur_w = 0;
-      var i_w = 150;
-      var timer = setInterval(function(){
-        if(cur_w < pct_w){
-          var dif_w = pct_w - cur_w;
-          if(dif_w < i_w){
-            i_w = dif_w;
-          }
-          cur_w = cur_w + i_w;
-          $(".b-spec_scroll").width(cur_w);
-          spec_resize();
-          $(".b-spec_scroll").css("display", "inline-block");
-        }
-        else{
-          clearInterval(timer);
-          $(".b-section-banner__btn").hide();
-          $(".b-section-banner__btn-close").show();
-          scroll();
-        }
-      }, 10);
-    }
-    function scroll_left(){
-      var doc_w = $(document).width();
-      if(doc_w < 1000){
-        doc_w = 1000;
-      }
-      var pct_w = parseInt(doc_w)/100*80;
-      var cur_w = pct_w;
-      var i_w = 150;
-      var timer = setInterval(function(){
-        if(cur_w > 0){
-          cur_w = cur_w - i_w;
-          $(".b-spec_scroll").width(cur_w);
-          spec_resize();
-        }
-        else{
-          clearInterval(timer);
-          $(".b-spec_scroll").hide();
-          $(".b-section-banner__btn").show();
-          $(".b-section-banner__btn-close").hide();
-          scroll();
-        }
-      }, 10);
-    }
-    function scroll(){
-      var total_height = 0;
-      var items = 0;
-      $(".scroll").children().find("[class*='_item']").each(function() {
-        items = items + 1;
-      });
-      var items_in_row = $(".scroll").width() / $(".scroll").children().find("[class*='_item']").width();
-      total_height = $(".scroll").children().find("[class*='_item']") * Math.ceil(items  /  items_in_row);
-      $(".scroll").find(".scroll__holder").height(total_height);
-      $(".scroll").mCustomScrollbar({
-        axis: "y",
-        scrollbarPosition: "inside",
-        scrollInertia: 200,
-        autoDraggerLength: false,
-     });
-    }
-    $(document).ready(function() {
-      section_resize();
-      $(".b-section-banner__btn").click(function(){
-          scroll_right();
-      });
-       $(".b-section-banner__btn-close").click(function(){
-          scroll_left();
-      });
-    });
-    $(window).resize(function() {
-      setTimeout(function() {
-        section_resize();
-        scroll();
-        spec_resize();
-        $(".b-equip__item").each(function(){
-          $(this).css("height", "auto");
-        });
-      }, 50);
-    });
-    $(function(){
-      $(".b-equip__item").hover(function(){
-        var height = $(this).height();
-        $(this).find(".b-equip__item-text").hide();
-        $(this).find(".b-equip-control").show();
-        $(this).height(height);
-      },
-      function(){
-        $(this).find(".b-equip__item-text").show();
-        $(this).find(".b-equip-control").hide();
-        
-      });
-    });
-  </script>
 </head>
 
 <body>
@@ -140,12 +30,12 @@
     <div class="b-header   clearfix">
       <a href="/" class="b-header__logo">
         <img src="/f/i/logo-small.png" alt="" class="b-header__logo-img">
-        <p class="b-header__logo-text">Передовые технологии</p>
+        <h1 class="b-header__logo-text">Передовые технологии</h1>
       </a>
       <div class="b-header-btns">
         <div class="scroll-btn_fvr scroll-btn iconize-fvr">
           <span class="scroll-btn__text">Избранное</span>
-          <span class="b-header__btn-qty">7</span>
+          <span class="scroll-btn-qty">7</span>
         </div>
         <div class="scroll-btn_qst scroll-btn iconize-qst">
           <span class="scroll-btn__text">Задать вопрос</span>
@@ -171,342 +61,364 @@
       </div>
     </div>
     <div class="b-content">
-    <div class="b-spec b-spec_scroll">
-    <div class="scroll-wrap">
-    <div class="scroll">
-      <div class="scroll__holder">
-      <a href="#" class="b-spec__item df1">
-        <img src="/f/i/spec-icons/1.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Автоматизация и мехатроника</p>
-      </a><a href="#" class="b-spec__item df3">
-        <img src="/f/i/spec-icons/2.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Автомобили и автомобильное хозяйство</p>
-      </a><a href="#" class="b-spec__item df2">
-        <img src="/f/i/spec-icons/3.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Аэродинамика</p>
-      </a><a href="#" class="b-spec__item df3">
-        <img src="/f/i/spec-icons/4.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Аэрокосмическая техника</p>
-      </a><a href="#" class="b-spec__item df1">
-        <img src="/f/i/spec-icons/5.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Биология</p>
-      </a><a href="#" class="b-spec__item df1">
-        <img src="/f/i/spec-icons/9.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Биотехнологии</p>
-      </a><a href="#" class="b-spec__item df2">
-        <img src="/f/i/spec-icons/6.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Вычислительная и микропроцессорная техника</p>
-      </a><a href="#" class="b-spec__item df1 df2">
-        <img src="/f/i/spec-icons/7.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Коммуникации</p>
-      </a><a href="#" class="b-spec__item df1">
-        <img src="/f/i/spec-icons/8.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Медицина</p>
-      </a><a href="#" class="b-spec__item df1">
-        <img src="/f/i/spec-icons/10.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Науки о Земле</p>
-      </a><a href="#" class="b-spec__item df3">
-        <img src="/f/i/spec-icons/11.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Нефтегазовая промышленность</p>
-      </a><a href="#" class="b-spec__item df1">
-        <img src="/f/i/spec-icons/12.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Пищевые и водные технологии</p>
-      </a><a href="#" class="b-spec__item df2">
-        <img src="/f/i/spec-icons/13.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Прикладная оптика и фотоника</p>
-      </a><a href="#" class="b-spec__item df1">
-        <img src="/f/i/spec-icons/14.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Прикладная механика</p>
-      </a><a href="#" class="b-spec__item df1">
-        <img src="/f/i/spec-icons/15.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Пищевая химия</p>
-      </a><a href="#" class="b-spec__item df1">
-        <img src="/f/i/spec-icons/16.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Радиотехника, телекоммуникации и сети ЭВМ</p>
-      </a><a href="#" class="b-spec__item df1">
-        <img src="/f/i/spec-icons/17.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Робототехника</p>
-      </a><a href="#" class="b-spec__item df3">
-        <img src="/f/i/spec-icons/18.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Сельское хозяйство</p>
-      </a><a href="#" class="b-spec__item df1">
-        <img src="/f/i/spec-icons/19.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Строительство</p>
-      </a><a href="#" class="b-spec__item">
-        <img src="/f/i/spec-icons/20.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Термодинамика и термотехника</p>
-      </a><a href="#" class="b-spec__item df2">
-        <img src="/f/i/spec-icons/21.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Технология машиностроения и обработка материалов</p>
-      </a><a href="#" class="b-spec__item b-spec__item_magenta">
-        <img src="/f/i/qst-mark.png" alt="" class="b-spec__img">
-        <h4 class="b-spec__text">Подобрать оборудование<p class="b-spec__text_small">Укажите бюджет и специализации, и мы сами предложим решение, подходящие именно для вас</p></h4>
-      </a><a href="#" class="b-spec__item df3">
-        <img src="/f/i/spec-icons/22.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Транспорт</p>
-      </a><a href="#" class="b-spec__item df1 df3">
-        <img src="/f/i/spec-icons/23.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Управление процессом</p>
-      </a><a href="#" class="b-spec__item df3">
-        <img src="/f/i/spec-icons/24.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Физика</p>
-      </a><a href="#" class="b-spec__item df3">
-        <img src="/f/i/spec-icons/25.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Химия</p>
-      </a><a href="#" class="b-spec__item df3">
-        <img src="/f/i/spec-icons/26.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Химические технологии</p>
-      </a><a href="#" class="b-spec__item df2 df3">
-        <img src="/f/i/spec-icons/27.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Экология</p>
-      </a><a href="#" class="b-spec__item df3">
-        <img src="/f/i/spec-icons/28.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Энергетика</p>
-      </a><a href="#" class="b-spec__item df3">
-        <img src="/f/i/spec-icons/29.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Энергия</p>
-      </a><a href="#" class="b-spec__item df3">
-        <img src="/f/i/spec-icons/30.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Электроника</p>
-      </a><a href="#" class="b-spec__item df2">
-        <img src="/f/i/spec-icons/31.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Электричество</p>
-      </a><a href="#" class="b-spec__item df3">
-        <img src="/f/i/spec-icons/32.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Гидромеханика</p>
-      </a><a href="#" class="b-spec__item df3">
-        <img src="/f/i/spec-icons/33.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Материаловедение</p>
-      </a><a href="#" class="b-spec__item df1">
-        <img src="/f/i/spec-icons/34.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Полиграфия</p>
-      </a><a href="#" class="b-spec__item df2">
-        <img src="/f/i/spec-icons/35.png" alt="" class="b-spec__img">
-        <p class="b-spec__text">Окружающая среда</p>
-      </a>
-    </div></div></div></div><div class="b-section clearfix">
-      <div class="b-section-banner">
-        <div class="b-section-banner__btn iconize-menu"></div>
-        <div class="b-section-banner__btn-close iconize-menu-close"></div>
-        <div class="b-section-banner__icon"></div>
-        <p class="b-section-banner__text">пищевые и водные технологии</p>
-      </div>
-      <div class="b-section__main">
-        <div class="b-section__main-top">
-        <div class="b-section__top b-section__top_margin">
-          <h2 class="b-section__top-title iconize-qst3">Для кого?</h2>
-          <p class="b-section__top-text"><strong>Оборудование подойдет для специальностей:</strong> «Технология хранения и переработки зерна»; «Хлебопекарное, макаронное и кондитерское производство»; «Технология сахаристых продуктов»; «Технология бродильных производств и виноделие»; «Технология субтропических и пищевкусовых продуктов»; «Технология жиров и жирозаменителей»; «Технология консервов и пищеконцентратов».</p>
-        </div><div class="b-section__top">
-          <h2 class="b-section__top-title iconize-plus">Для чего?</h2>
-          <p class="b-section__top-text">Для управления современными мясомолочными и пищевыми производствами требуются квалифицированные специалисты, в задачу которых входит внедрение передовых технологий, создание новых пищевых продуктов, контроль и улучшение их качества, разработка новых методов обработки и хранения пищевых продуктов.</p>
+      <div class="b-spec b-spec_scroll">
+        <div class="scroll-wrap">
+          <div class="scroll">
+            <div class="scroll__holder">
+              <a href="#" class="b-spec__item df1">
+                <img src="/f/i/spec-icons/1.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Автоматизация и мехатроника</p>
+              </a><a href="#" class="b-spec__item df3">
+                <img src="/f/i/spec-icons/2.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Автомобили и автомобильное хозяйство</p>
+              </a><a href="#" class="b-spec__item df2">
+                <img src="/f/i/spec-icons/3.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Аэродинамика</p>
+              </a><a href="#" class="b-spec__item df3">
+                <img src="/f/i/spec-icons/4.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Аэрокосмическая техника</p>
+              </a><a href="#" class="b-spec__item df1">
+                <img src="/f/i/spec-icons/5.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Биология</p>
+              </a><a href="#" class="b-spec__item df1">
+                <img src="/f/i/spec-icons/9.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Биотехнологии</p>
+              </a><a href="#" class="b-spec__item df2">
+                <img src="/f/i/spec-icons/6.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Вычислительная и микропроцессорная техника</p>
+              </a><a href="#" class="b-spec__item df1 df2">
+                <img src="/f/i/spec-icons/7.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Коммуникации</p>
+              </a><a href="#" class="b-spec__item df1">
+                <img src="/f/i/spec-icons/8.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Медицина</p>
+              </a><a href="#" class="b-spec__item df1">
+                <img src="/f/i/spec-icons/10.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Науки о Земле</p>
+              </a><a href="#" class="b-spec__item df3">
+                <img src="/f/i/spec-icons/11.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Нефтегазовая промышленность</p>
+              </a><a href="#" class="b-spec__item df1">
+                <img src="/f/i/spec-icons/12.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Пищевые и водные технологии</p>
+              </a><a href="#" class="b-spec__item df2">
+                <img src="/f/i/spec-icons/13.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Прикладная оптика и фотоника</p>
+              </a><a href="#" class="b-spec__item df1">
+                <img src="/f/i/spec-icons/14.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Прикладная механика</p>
+              </a><a href="#" class="b-spec__item df1">
+                <img src="/f/i/spec-icons/15.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Пищевая химия</p>
+              </a><a href="#" class="b-spec__item df1">
+                <img src="/f/i/spec-icons/16.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Радиотехника, телекоммуникации и сети ЭВМ</p>
+              </a><a href="#" class="b-spec__item df1">
+                <img src="/f/i/spec-icons/17.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Робототехника</p>
+              </a><a href="#" class="b-spec__item df3">
+                <img src="/f/i/spec-icons/18.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Сельское хозяйство</p>
+              </a><a href="#" class="b-spec__item df1">
+                <img src="/f/i/spec-icons/19.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Строительство</p>
+              </a><a href="#" class="b-spec__item">
+                <img src="/f/i/spec-icons/20.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Термодинамика и термотехника</p>
+              </a><a href="#" class="b-spec__item df2">
+                <img src="/f/i/spec-icons/21.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Технология машиностроения и обработка материалов</p>
+              </a><a href="#" class="b-spec__item b-spec__item_magenta">
+                <img src="/f/i/qst-mark.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Подобрать оборудование<span class="b-spec__text_small">Укажите бюджет и специализации, и мы сами предложим решение, подходящие именно для вас</span></p>
+              </a><a href="#" class="b-spec__item df3">
+                <img src="/f/i/spec-icons/22.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Транспорт</p>
+              </a><a href="#" class="b-spec__item df1 df3">
+                <img src="/f/i/spec-icons/23.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Управление процессом</p>
+              </a><a href="#" class="b-spec__item df3">
+                <img src="/f/i/spec-icons/24.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Физика</p>
+              </a><a href="#" class="b-spec__item df3">
+                <img src="/f/i/spec-icons/25.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Химия</p>
+              </a><a href="#" class="b-spec__item df3">
+                <img src="/f/i/spec-icons/26.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Химические технологии</p>
+              </a><a href="#" class="b-spec__item df2 df3">
+                <img src="/f/i/spec-icons/27.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Экология</p>
+              </a><a href="#" class="b-spec__item df3">
+                <img src="/f/i/spec-icons/28.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Энергетика</p>
+              </a><a href="#" class="b-spec__item df3">
+                <img src="/f/i/spec-icons/29.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Энергия</p>
+              </a><a href="#" class="b-spec__item df3">
+                <img src="/f/i/spec-icons/30.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Электроника</p>
+              </a><a href="#" class="b-spec__item df2">
+                <img src="/f/i/spec-icons/31.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Электричество</p>
+              </a><a href="#" class="b-spec__item df3">
+                <img src="/f/i/spec-icons/32.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Гидромеханика</p>
+              </a><a href="#" class="b-spec__item df3">
+                <img src="/f/i/spec-icons/33.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Материаловедение</p>
+              </a><a href="#" class="b-spec__item df1">
+                <img src="/f/i/spec-icons/34.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Полиграфия</p>
+              </a><a href="#" class="b-spec__item df2">
+                <img src="/f/i/spec-icons/35.png" alt="" class="b-spec__img">
+                <p class="b-spec__text">Окружающая среда</p>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="b-section-switcher switcher">
-        <div class="b-section__item switcher__item switcher__item_active">
-          <span class="b-sectionr__item-text switcher__item-text">Все призводители</span>
-        </div><div class="b-section__item switcher__item">
-          <div class="b-section__item-icon switcher__item-icon switcher__item-icon_1"></div>
-        </div><div class="b-section__item switcher__item">
-           <div class="b-section__item-icon switcher__item-icon switcher__item-icon_2"></div>
-        </div><div class="b-section__item switcher__item">
-           <div class="b-section__item-icon switcher__item-icon switcher__item-icon_3"></div>
+      </div><div class="b-section clearfix">
+        <div class="b-scroll-banner">
+          <div class="b-scroll-banner__btn b-scroll-banner__btn_open iconize-menu"></div>
+          <div class="b-scroll-banner__btn b-scroll-banner__btn_close iconize-menu-close"></div>
+          <div class="b-scroll-banner__icon"></div>
+          <p class="b-scroll-banner__text">пищевые и водные технологии</p>
         </div>
-       </div>
-       </div>
-       <div class="b-equip">
-         <h2 class="b-section__title">Пищевые технологии (Базовые)</h2>
-         <div class="b-equip__item">
-            <div class="b-equip__item-right">
-              <img src="/f/i/equip/1.jpg" alt="" class="b-equip__item-img"><div class="b-equip__item-scheme-wrap"><img src="/f/i/base-complect.png" alt="" class="b-equip__item-scheme"></div>
-              <div class="b-equip__item-detail-wrap">
-                <div class="b-equip__item-detail">
-                  <p class="b-equip__item-detail-text">Базовых <br>комплектующих:</p>
-                  <span class="b-equip__item-detail-value">6</span>
+        <div class="b-section__main">
+          <div class="b-section__main-top">
+            <div class="b-section__top b-section__top_margin">
+              <h2 class="b-section__top-title iconize-qst3">Для кого?</h2>
+              <p class="b-section__top-text">
+                <strong>Оборудование подойдет для специальностей:</strong>«Технология хранения и переработки зерна»; «Хлебопекарное, макаронное и кондитерское производство»; «Технология сахаристых продуктов»; «Технология бродильных производств и виноделие»; «Технология субтропических и пищевкусовых продуктов»; «Технология жиров и жирозаменителей»; «Технология консервов и пищеконцентратов».</p>
+            </div><div class="b-section__top">
+              <h2 class="b-section__top-title iconize-plus">Для чего?</h2>
+              <p class="b-section__top-text">Для управления современными мясомолочными и пищевыми производствами требуются квалифицированные специалисты, в задачу которых входит внедрение передовых технологий, создание новых пищевых продуктов, контроль и улучшение их качества, разработка новых методов обработки и хранения пищевых продуктов.</p>
+            </div>
+            <div class="b-section__switcher b-switcher">
+              <div class="b-switcher__item b-switcher__item_active">
+                <span class="b-switcher__item-text">Все призводители</span>
+              </div><div class="b-switcher__item">
+                <div class="b-switcher__item-icon b-switcher__item-icon_1"></div>
+              </div><div class="b-switcher__item">
+                <div class="b-switcher__item-icon b-switcher__item-icon_2"></div>
+              </div><div class="b-switcher__item">
+                <div class="b-switcher__item-icon b-switcher__item-icon_3"></div>
+              </div>
+            </div>
+          </div>
+          <div class="b-equip">
+            <h2 class="b-equip__title">Пищевые технологии (Базовые)</h2>
+            <div class="b-equip__item">
+              <div class="b-equip__item-right">
+                <img src="/f/i/equip/1.jpg" alt="" class="b-equip__item-img"><div class="b-equip__item-scheme-wrap">
+                  <img src="/f/i/base-complect.png" alt="" class="b-equip__item-scheme">
+                  <div class="b-techno-ico b-techno-ico_arrowed b-techno-ico_sc-pid b-techno-ico_equip"><p>scada <br>+<br> pid</p></div>
                 </div>
-                <div class="b-equip__item-detail">
-                  <p class="b-equip__item-detail-text">Практических <br> возможностей:</p>
-                  <span class="b-equip__item-detail-value b-equip__item-detail-value_rounded">7</span>
+                <div class="b-equip__item-detail-wrap">
+                  <div class="b-equip__item-detail">
+                    <p class="b-equip__item-detail-text">Базовых
+                      <br>комплектующих:</p>
+                    <span class="b-equip__item-detail-value">6</span>
+                  </div><div class="b-equip__item-detail">
+                    <p class="b-equip__item-detail-text">Практических
+                      <br>возможностей:</p>
+                    <span class="b-equip__item-detail-value b-equip__item-detail-value_rounded">7</span>
+                  </div>
+                </div>
+              </div>
+              <div class="b-equip__item-left">
+                <h3 class="b-equip__item-title">Установка автономной пастеризации (исполнение компьютерное)</h3>
+                <img src="/f/i/fabric1.png" alt="" class="b-equip__item-fabric-icon">
+                <div class="b-equip__item-fabric-cont">
+                  <p class="b-equip__item-italic-text">Computer Controlled Teaching Autonomous Pasteurization Unit</p>
+                  <span class="b-equip__item-artic">Артикул: AEHC</span>
+                </div>
+                <p class="b-equip__item-text">Устройство Гидрогенизации это стендовый аппарат, который регулирует степень насыщенности пищевых масел в емкости объемом 22 литра. Установка состоит из 7 базовых комплектующих и 5 дополнительного оборудования.</p>
+                <div class="b-control_left b-equip-control b-control clearfix">
+                  <div class="scroll-btn_price scroll-btn iconize-price">
+                    <span class="scroll-btn__text">Узнать цену</span>
+                  </div>
+                  <div class="scroll-btn_fvr scroll-btn iconize-fvr">
+                    <span class="scroll-btn__text">Добавить в избранное</span>
+                  </div>
+                  <div class="scroll-btn_qst scroll-btn iconize-qst">
+                    <span class="scroll-btn__text">Задать вопрос</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="b-equip__item-left">
-              <h3 class="b-equip__item-title">Установка автономной пастеризации (исполнение компьютерное)</h3>
-              <span class="b-equip__item-fabric-icon fabric-icon fabric-icon_1"></span>
-              <div class="b-equip__item-fabric-cont">
-                <p class="b-equip__item-italic-text">Computer Controlled Teaching Autonomous Pasteurization Unit</p>
-                <span class="b-equip__item-artic">Артикул: AEHC</span>
-              </div>
-              <p class="b-equip__item-text">Устройство Гидрогенизации это стендовый аппарат, который регулирует степень насыщенности пищевых масел в емкости объемом 22 литра. Установка состоит из 7 базовых комплектующих и 5 дополнительного оборудования.</p>
-              <div class="b-equip-control clearfix">
-                <div class="scroll-btn_price scroll-btn iconize-price">
-                  <span class="scroll-btn__text">Узнать цену</span>
+            <div class="b-equip__item b-equip__item_dark">
+              <div class="b-equip__item-right">
+                <img src="/f/i/equip/2.jpg" alt="" class="b-equip__item-img"><div class="b-equip__item-scheme-wrap">
+                  <img src="/f/i/base-complect.png" alt="" class="b-equip__item-scheme">
+                  <div class="b-techno-ico b-techno-ico_arrowed b-techno-ico_sc-pid b-techno-ico_equip"><p>scada <br>+<br> pid</p></div>
                 </div>
-                <div class="scroll-btn_fvr scroll-btn iconize-fvr">
-                  <span class="scroll-btn__text">Избранное</span>
-                </div>
-                <div  class="scroll-btn_qst scroll-btn iconize-qst">
-                  <span class="scroll-btn__text">Задать вопрос</span>
-                </div>
-              </div>
-            </div>
-         </div>
-         <div class="b-equip__item b-equip__item_dark">
-            <div class="b-equip__item-right">
-              <img src="/f/i/equip/2.jpg" alt="" class="b-equip__item-img"><div class="b-equip__item-scheme-wrap"><img src="/f/i/base-complect.png" alt="" class="b-equip__item-scheme"></div>
-              <div class="b-equip__item-detail-wrap">
-                <div class="b-equip__item-detail">
-                  <p class="b-equip__item-detail-text">Базовых <br>комплектующих:</p>
-                  <span class="b-equip__item-detail-value">12</span>
-                </div><div class="b-equip__item-detail">
-                  <p class="b-equip__item-detail-text">Практических <br> возможностей:</p>
-                  <span class="b-equip__item-detail-value b-equip__item-detail-value_rounded">4</span>
+                <div class="b-equip__item-detail-wrap">
+                  <div class="b-equip__item-detail">
+                    <p class="b-equip__item-detail-text">Базовых
+                      <br>комплектующих:</p>
+                    <span class="b-equip__item-detail-value">12</span>
+                  </div><div class="b-equip__item-detail">
+                    <p class="b-equip__item-detail-text">Практических
+                      <br>возможностей:</p>
+                    <span class="b-equip__item-detail-value b-equip__item-detail-value_rounded">4</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="b-equip__item-left">
-              <h3 class="b-equip__item-title">Лаборатория пастеризации (исполнение компьютерное)</h3>
-              <div class="b-equip__item-fabric-icon fabric-icon fabric-icon_2"></div>
-              <div class="b-equip__item-fabric-cont">
-                <p class="b-equip__item-italic-text">Computer Controlled Teaching Autonomous Pasteurization Unit</p>
-                <span class="b-equip__item-artic">Артикул: AEHC</span>
-              </div>
-              <p class="b-equip__item-text">Устройство Гидрогенизации это стендовый аппарат, который регулирует степень насыщенности пищевых масел в емкости объемом 22 литра. Установка состоит из 7 базовых комплектующих и 5 дополнительного оборудования.</p>
-              <div class="b-equip-control clearfix">
-                <div class="scroll-btn_price scroll-btn iconize-price">
-                  <span class="scroll-btn__text">Узнать цену</span>
+              <div class="b-equip__item-left">
+                <h3 class="b-equip__item-title">Лаборатория пастеризации (исполнение компьютерное)</h3>
+                <img src="/f/i/fabric1.png" alt="" class="b-equip__item-fabric-icon">
+                <div class="b-equip__item-fabric-cont">
+                  <p class="b-equip__item-italic-text">Computer Controlled Teaching Autonomous Pasteurization Unit</p>
+                  <span class="b-equip__item-artic">Артикул: AEHC</span>
                 </div>
-                <div class="scroll-btn_fvr scroll-btn iconize-fvr">
-                  <span class="scroll-btn__text">Избранное</span>
-                </div>
-                <div  class="scroll-btn_qst scroll-btn iconize-qst">
-                  <span class="scroll-btn__text">Задать вопрос</span>
+                <p class="b-equip__item-text">Устройство Гидрогенизации это стендовый аппарат, который регулирует степень насыщенности пищевых масел в емкости объемом 22 литра. Установка состоит из 7 базовых комплектующих и 5 дополнительного оборудования.</p>
+                <div class="b-control_left b-equip-control b-control clearfix">
+                  <div class="scroll-btn_price scroll-btn iconize-price">
+                    <span class="scroll-btn__text">Узнать цену</span>
+                  </div>
+                  <div class="scroll-btn_fvr scroll-btn iconize-fvr">
+                    <span class="scroll-btn__text">Добавить в избранное</span>
+                  </div>
+                  <div class="scroll-btn_qst scroll-btn iconize-qst">
+                    <span class="scroll-btn__text">Задать вопрос</span>
+                  </div>
                 </div>
               </div>
             </div>
-         </div>
-         <div class="b-equip__item">
-            <div class="b-equip__item-right">
-              <img src="/f/i/equip/3.jpg" alt="" class="b-equip__item-img"><div class="b-equip__item-scheme-wrap"><img src="/f/i/base-complect.png" alt="" class="b-equip__item-scheme"></div>
-              <div class="b-equip__item-detail-wrap">
-                <div class="b-equip__item-detail">
-                  <p class="b-equip__item-detail-text">Базовых <br>комплектующих:</p>
-                  <span class="b-equip__item-detail-value">6</span>
+            <div class="b-equip__item">
+              <div class="b-equip__item-right">
+                <img src="/f/i/equip/3.jpg" alt="" class="b-equip__item-img"><div class="b-equip__item-scheme-wrap">
+                  <img src="/f/i/base-complect.png" alt="" class="b-equip__item-scheme">
+                  <div class="b-techno-ico b-techno-ico_arrowed b-techno-ico_sc-pid b-techno-ico_equip"><p>scada <br>+<br> pid</p></div>
                 </div>
-                <div class="b-equip__item-detail">
-                  <p class="b-equip__item-detail-text">Практических <br> возможностей:</p>
-                  <span class="b-equip__item-detail-value b-equip__item-detail-value_rounded">7</span>
+                <div class="b-equip__item-detail-wrap">
+                  <div class="b-equip__item-detail">
+                    <p class="b-equip__item-detail-text">Базовых
+                      <br>комплектующих:</p>
+                    <span class="b-equip__item-detail-value">6</span>
+                  </div><div class="b-equip__item-detail">
+                    <p class="b-equip__item-detail-text">Практических
+                      <br>возможностей:</p>
+                    <span class="b-equip__item-detail-value b-equip__item-detail-value_rounded">7</span>
+                  </div>
+                </div>
+              </div>
+              <div class="b-equip__item-left">
+                <h3 class="b-equip__item-title">Лотковая сушилка (исполнение компьютерное)</h3>
+                <img src="/f/i/fabric1.png" alt="" class="b-equip__item-fabric-icon">
+                <div class="b-equip__item-fabric-cont">
+                  <p class="b-equip__item-italic-text">Computer Controlled Teaching Autonomous Pasteurization Unit</p>
+                  <span class="b-equip__item-artic">Артикул: AEHC</span>
+                </div>
+                <p class="b-equip__item-text">Устройство Гидрогенизации это стендовый аппарат, который регулирует степень насыщенности пищевых масел в емкости объемом 22 литра. Установка состоит из 7 базовых комплектующих и 5 дополнительного оборудования.</p>
+                <div class="b-control_left b-equip-control b-control clearfix">
+                  <div class="scroll-btn_price scroll-btn iconize-price">
+                    <span class="scroll-btn__text">Узнать цену</span>
+                  </div>
+                  <div class="scroll-btn_fvr scroll-btn iconize-fvr">
+                    <span class="scroll-btn__text">Добавить в избранное</span>
+                  </div>
+                  <div class="scroll-btn_qst scroll-btn iconize-qst">
+                    <span class="scroll-btn__text">Задать вопрос</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="b-equip__item-left">
-              <h3 class="b-equip__item-title">Лотковая сушилка (исполнение компьютерное)</h3>
-              <div class="b-equip__item-fabric-icon fabric-icon fabric-icon_3"></div>
-              <div class="b-equip__item-fabric-cont">
-                <p class="b-equip__item-italic-text">Computer Controlled Teaching Autonomous Pasteurization Unit</p>
-                <span class="b-equip__item-artic">Артикул: AEHC</span>
-              </div>
-              <p class="b-equip__item-text">Устройство Гидрогенизации это стендовый аппарат, который регулирует степень насыщенности пищевых масел в емкости объемом 22 литра. Установка состоит из 7 базовых комплектующих и 5 дополнительного оборудования.</p>
-              <div class="b-equip-control clearfix">
-                <div class="scroll-btn_price scroll-btn iconize-price">
-                  <span class="scroll-btn__text">Узнать цену</span>
-                </div>
-                <div class="scroll-btn_fvr scroll-btn iconize-fvr">
-                  <span class="scroll-btn__text">Избранное</span>
-                </div>
-                <div  class="scroll-btn_qst scroll-btn iconize-qst">
-                  <span class="scroll-btn__text">Задать вопрос</span>
+            <div class="b-equip__item b-equip__item_dark">
+              <div class="b-equip__item-right">
+                <img src="/f/i/equip/4.jpg" alt="" class="b-equip__item-img">
+                <div class="b-equip__item-detail-wrap">
+                  <div class="b-equip__item-detail">
+                    <p class="b-equip__item-detail-text">Базовых
+                      <br>комплектующих:</p>
+                    <span class="b-equip__item-detail-value">1</span>
+                  </div><div class="b-equip__item-detail">
+                    <p class="b-equip__item-detail-text">Практических
+                      <br>возможностей:</p>
+                    <span class="b-equip__item-detail-value b-equip__item-detail-value_rounded">8</span>
+                  </div>
                 </div>
               </div>
-            </div>
-         </div>
-         <div class="b-equip__item b-equip__item_dark">
-            <div class="b-equip__item-right">
-              <img src="/f/i/equip/4.jpg" alt="" class="b-equip__item-img">
-              <div class="b-equip__item-detail-wrap">
-                <div class="b-equip__item-detail">
-                  <p class="b-equip__item-detail-text">Базовых <br>комплектующих:</p>
-                  <span class="b-equip__item-detail-value">1</span>
+              <div class="b-equip__item-left">
+                <h3 class="b-equip__item-title">Устройство грунтовых вод</h3>
+                <img src="/f/i/fabric1.png" alt="" class="b-equip__item-fabric-icon">
+                <div class="b-equip__item-fabric-cont">
+                  <p class="b-equip__item-italic-text">Computer Controlled Teaching Autonomous Pasteurization Unit</p>
+                  <span class="b-equip__item-artic">Артикул: AEHC</span>
                 </div>
-                <div class="b-equip__item-detail">
-                  <p class="b-equip__item-detail-text">Практических <br> возможностей:</p>
-                  <span class="b-equip__item-detail-value b-equip__item-detail-value_rounded">8</span>
-                </div>
-              </div>
-            </div>
-            <div class="b-equip__item-left">
-              <h3 class="b-equip__item-title">Устройство грунтовых вод</h3>
-              <span class="b-equip__item-fabric-icon fabric-icon fabric-icon_1"></span>
-              <div class="b-equip__item-fabric-cont">
-                <p class="b-equip__item-italic-text">Computer Controlled Teaching Autonomous Pasteurization Unit</p>
-                <span class="b-equip__item-artic">Артикул: AEHC</span>
-              </div>
-              <p class="b-equip__item-text">Устройство Гидрогенизации это стендовый аппарат, который регулирует степень насыщенности пищевых масел в емкости объемом 22 литра. Установка состоит из 7 базовых комплектующих и 5 дополнительного оборудования.</p>
-              <div class="b-equip-control clearfix">
-                <div class="scroll-btn_price scroll-btn iconize-price">
-                  <span class="scroll-btn__text">Узнать цену</span>
-                </div>
-                <div class="scroll-btn_fvr scroll-btn iconize-fvr">
-                  <span class="scroll-btn__text">Избранное</span>
-                </div>
-                <div  class="scroll-btn_qst scroll-btn iconize-qst">
-                  <span class="scroll-btn__text">Задать вопрос</span>
+                <p class="b-equip__item-text">Устройство Гидрогенизации это стендовый аппарат, который регулирует степень насыщенности пищевых масел в емкости объемом 22 литра. Установка состоит из 7 базовых комплектующих и 5 дополнительного оборудования.</p>
+                <div class="b-control_left b-equip-control b-control clearfix">
+                  <div class="scroll-btn_price scroll-btn iconize-price">
+                    <span class="scroll-btn__text">Узнать цену</span>
+                  </div>
+                  <div class="scroll-btn_fvr scroll-btn iconize-fvr">
+                    <span class="scroll-btn__text">Добавить в избранное</span>
+                  </div>
+                  <div class="scroll-btn_qst scroll-btn iconize-qst">
+                    <span class="scroll-btn__text">Задать вопрос</span>
+                  </div>
                 </div>
               </div>
             </div>
-         </div>
-         <h2 class="b-section__title">Пищевые технологии (Молоко)</h2>
-         <div class="b-equip__item">
-            <div class="b-equip__item-right">
-              <img src="/f/i/equip/5.jpg" alt="" class="b-equip__item-img"><div class="b-equip__item-scheme-wrap"><img src="/f/i/base-complect.png" alt="" class="b-equip__item-scheme"></div>
-              <div class="b-equip__item-detail-wrap">
-                <div class="b-equip__item-detail">
-                  <p class="b-equip__item-detail-text">Базовых <br>комплектующих:</p>
-                  <span class="b-equip__item-detail-value">6</span>
+            <h2 class="b-section__title">Пищевые технологии (Молоко)</h2>
+            <div class="b-equip__item">
+              <div class="b-equip__item-right">
+                <img src="/f/i/equip/5.jpg" alt="" class="b-equip__item-img"><div class="b-equip__item-scheme-wrap">
+                  <img src="/f/i/base-complect.png" alt="" class="b-equip__item-scheme">
+                  <div class="b-techno-ico b-techno-ico_arrowed b-techno-ico_sc-pid b-techno-ico_equip"><p>scada <br>+<br> pid</p></div>
                 </div>
-                <div class="b-equip__item-detail">
-                  <p class="b-equip__item-detail-text">Практических <br> возможностей:</p>
-                  <span class="b-equip__item-detail-value b-equip__item-detail-value_rounded">8</span>
+                <div class="b-equip__item-detail-wrap">
+                  <div class="b-equip__item-detail">
+                    <p class="b-equip__item-detail-text">Базовых
+                      <br>комплектующих:</p>
+                    <span class="b-equip__item-detail-value">6</span>
+                  </div><div class="b-equip__item-detail">
+                    <p class="b-equip__item-detail-text">Практических
+                      <br>возможностей:</p>
+                    <span class="b-equip__item-detail-value b-equip__item-detail-value_rounded">8</span>
+                  </div>
+                </div>
+              </div>
+              <div class="b-equip__item-left">
+                <h3 class="b-equip__item-title">Обучающий cепаратор для получения сливок (компьютерное исполнение)</h3>
+                <img src="/f/i/fabric1.png" alt="" class="b-equip__item-fabric-icon">
+                <div class="b-equip__item-fabric-cont">
+                  <p class="b-equip__item-italic-text">Computer Controlled Teaching Autonomous Pasteurization Unit</p>
+                  <span class="b-equip__item-artic">Артикул: AEHC</span>
+                </div>
+                <p class="b-equip__item-text">Устройство Гидрогенизации это стендовый аппарат, который регулирует степень насыщенности пищевых масел в емкости объемом 22 литра. Установка состоит из 7 базовых комплектующих и 5 дополнительного оборудования.</p>
+                <div class="b-control_left b-equip-control b-control clearfix">
+                  <div class="scroll-btn_price scroll-btn iconize-price">
+                    <span class="scroll-btn__text">Узнать цену</span>
+                  </div>
+                  <div class="scroll-btn_fvr scroll-btn iconize-fvr">
+                    <span class="scroll-btn__text">Добавить в избранное</span>
+                  </div>
+                  <div class="scroll-btn_qst scroll-btn iconize-qst">
+                    <span class="scroll-btn__text">Задать вопрос</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="b-equip__item-left">
-              <h3 class="b-equip__item-title">Обучающий cепаратор для получения сливок (компьютерное исполнение)</h3>
-              <div class="b-equip__item-fabric-icon fabric-icon fabric-icon_2"></div>
-              <div class="b-equip__item-fabric-cont">
-                <p class="b-equip__item-italic-text">Computer Controlled Teaching Autonomous Pasteurization Unit</p>
-                <span class="b-equip__item-artic">Артикул: AEHC</span>
-              </div>
-              <p class="b-equip__item-text">Устройство Гидрогенизации это стендовый аппарат, который регулирует степень насыщенности пищевых масел в емкости объемом 22 литра. Установка состоит из 7 базовых комплектующих и 5 дополнительного оборудования.</p>
-              <div class="b-equip-control clearfix">
-                <div class="scroll-btn_price scroll-btn iconize-price">
-                  <span class="scroll-btn__text">Узнать цену</span>
-                </div>
-                <div class="scroll-btn_fvr scroll-btn iconize-fvr">
-                  <span class="scroll-btn__text">Избранное</span>
-                </div>
-                <div  class="scroll-btn_qst scroll-btn iconize-qst">
-                  <span class="scroll-btn__text">Задать вопрос</span>
-                </div>
-              </div>
-            </div>
-         </div>
-       </div>
+          </div>
+        </div>
       </div>
-    </div>
     </div>
     <div class="b-footer clearfix">
       <ul class="b-footer-menu">
-        <li class="b-footer-menu__item"><a href="#">Каталог</a></li>
-        <li class="b-footer-menu__item"><a href="#">О компании</a></li>
-        <li class="b-footer-menu__item"><a href="#">Партнеры</a></li>
-        <li class="b-footer-menu__item"><a href="#">Новости</a></li>
-        <li class="b-footer-menu__item"><a class="b-list-popup-link" href="#b-list-popup">Доставка</a></li>
-        <li class="b-footer-menu__item"><a class="b-question-popup-link" href="#b-question-popup">Вопросы и ответы</a></li>
-        <li class="b-footer-menu__item"><a class="b-question-ok-popup-link" href="#b-question-ok-popup">Контакты</a></li>
-        <li class="b-footer-menu__item b-footer-menu__item_phone"><span class="iconize-phone">8 (800) 542 23 43</span></li>
+        <li class="b-footer-menu__item"><a href="#" class="link">Каталог</a>
+        </li><li class="b-footer-menu__item"><a href="#" class="link">О компании</a>
+        </li><li class="b-footer-menu__item"><a href="#" class="link">Партнеры</a>
+        </li><li class="b-footer-menu__item"><a href="#" class="link">Новости</a>
+        </li><li class="b-footer-menu__item"><a class="b-list-popup-link link" href="#b-list-popup">Доставка</a>
+        </li><li class="b-footer-menu__item"><a class="b-question-popup-link link" href="#b-question-popup">Вопросы и ответы</a>
+        </li><li class="b-footer-menu__item"><a class="b-question-ok-popup-link link" href="#b-question-ok-popup">Контакты</a>
+        </li><li class="b-footer-menu__item b-footer-menu__item_phone"><span class="iconize-phone">8 (800) 542 23 43</span></li>
       </ul>
       <a href="#" class="b-footer-made-by">
         <span class="b-footer-made-by__text">Создание сайта</span>
-        <div class="b-footer-made-by__img"></div>
+        <span class="b-footer-made-by__img"></span>
       </a>
       <div class="b-footer-form-wrap">
         <form action="" class="b-footer-form">
@@ -516,315 +428,298 @@
               <span class="input-hint input-hint_subscribe">E-Mail</span>
             </label>
             <input class="b-footer-form__text input-placeholder" id="subscribe-input" type="email" value="" />
-            <span class="clear-text"></span>
           </div>
           <div class="b-footer-form__submit-wrap">
-           <input type="submit" id="b-footer-form__submit" class="b-footer-form__submit" value="Подписаться">
-           <label for="b-footer-form__submit" class="b-footer-form__label"></label>
+            <input type="submit" id="b-footer-form__submit" class="b-footer-form__submit" value="Подписаться">
+            <label for="b-footer-form__submit" class="b-footer-form__label"></label>
           </div>
         </form>
       </div>
-     
+
     </div>
   </div>
   <div class="b-popups">
-    <div class="b-question-popup" id="b-question-popup">
+    <form class="b-question-popup b-popup b-form" id="b-question-popup">
       <div class="b-popup-head">
         <span class="b-popup-head__text iconize-qst">Задать вопрос</span>
         <span class="popup__close iconize-close" onclick="fancy_close();"></span>
       </div>
       <div class="b-popup-wrap">
-        <div class="b-question-popup__input-wrap input-wrap">
+        <div class="input-wrap">
           <label for="b-question-popup__name-input" class="input-hint">
             <span class="input-hint">Наименование учреждения</span>
           </label>
-          <input class="b-question-popup__name-input input input-placeholder" id="b-question-popup__name-input" type="text" value="" />
+          <input class="input input-placeholder" id="b-question-popup__name-input" type="text" value="" />
         </div>
-        <div class="b-question-popup__phone-input-wrap input-wrap">
+        <div class="input-wrap b-form__half">
         <label for="b-question-popup__phone-input" class="input-hint">
           <span class="input-hint">Телефон</span>
         </label>
-        <input class="b-question-popup__phone-input input input-placeholder" id="b-question-popup__phone-input" type="tel" value="" />
-      </div><div class="b-question-popup__email-input-wrap input-wrap">
+        <input class="input input-placeholder" id="b-question-popup__phone-input" type="tel" value="" />
+      </div><div class="input-wrap b-form__half b-form__half_right">
         <label for="b-question-popup__email-input" class="input-hint">
           <span class="input-hint">E-Mail</span>
         </label>
-        <input class="b-question-popup__email-input input input-placeholder" id="b-question-popup__email-input" type="email" value="" />
+        <input class="input input-placeholder" id="b-question-popup__email-input" type="email" value="" />
       </div>
-     <!--  <div class="b-question-popup__email-input-wrap input-wrap iconize-input-correct">
+     <!--  <div class="input-wrap b-form__half iconize-input-correct">
        <label for="b-question-popup__email-input" class="input-hint">
          <span class="input-hint">E-Mail</span>
        </label>
-       <input class="b-question-popup__email-input input input-placeholder" id="b-question-popup__email-input" type="email" value="" />
-       <span class="clear-text"></span>
+       <input class="input input-placeholder" id="b-question-popup__email-input" type="email" value="" />
      </div> -->
-      <!-- <div class="b-question-popup__email-input-wrap input-wrap iconize-input-incorrect">
+      <!-- <div class="input-wrap b-form__half iconize-input-incorrect">
         <label for="b-question-popup__email-input" class="input-hint">
           <span class="input-hint">E-Mail</span>
         </label>
-        <input class="b-question-popup__email-input input input-placeholder" id="b-question-popup__email-input" type="email" value="" />
-        <span class="clear-text"></span>
+        <input class="input input-placeholder" id="b-question-popup__email-input" type="email" value="" />
       </div> -->
-      <div class="clearfix"></div>
-      <div class="b-question-popup__text-input-wrap input-wrap clearfix">
+      <div class="input-wrap clearfix">
         <label for="b-question-popup__text-input" class="input-hint">
           <span class="input-hint">Ваш вопрос</span>
         </label>
-        <textarea class="b-question-popup__text-input input input-placeholder" id="b-question-popup__text-input"></textarea>
-        <span class="clear-text"></span>
+        <textarea class="input input-area input-placeholder" id="b-question-popup__text-input"></textarea>
       </div>
-      <div class="b-question-popup-btn-wrap">
-        <input type="submit" id="b-question-popup__submit" class="b-question-popup__submit magenta-btn" value="Отправить">
-        <!--<input type="submit" id="b-question-popup__submit" class="b-question-popup__submit magenta-btn_inactive magenta-btn" value="Отправить"> -->
+      <div class="b-btn-wrap">
+        <input type="submit" id="b-question-popup__submit" class="magenta-btn" value="Отправить">
+        <!--<input type="submit" id="b-question-popup__submit" class="magenta-btn_inactive magenta-btn" value="Отправить"> -->
       </div>
       </div>
-    </div>
-    <div class="b-question-ok-popup" id="b-question-ok-popup">
+    </form>
+    <div class="b-question-ok-popup b-popup b-form" id="b-question-ok-popup">
       <div class="b-popup-wrap">
-        <span class="b-question-ok-popup__title popup__title">Ваш вопрос получен</span>
-        <span class="b-question-ok-popup__text">Мы свяжемся с Вами<br> в самое ближайшее время!</span>
-        <div class="b-question-ok-popup__btn">
+        <span class="b-popup__title">Ваш вопрос получен</span>
+        <p class="b-popup__text">Мы свяжемся с Вами<br> в самое ближайшее время!</p>
+        <div class="b-btn-wrap">
           <span class="magenta-btn" onclick="fancy_close();">Спасибо</span>
         </div>
       </div>
     </div>
-    <form class="b-list-popup" id="b-list-popup">
-      <div class="b-list-popup-head">
-        <span class="b-list-popup-head__text iconize-qst2">Опросный лист</span>
+    <form class="b-list-popup b-form" id="b-list-popup">
+      <div class="b-form__head b-form-head">
+        <span class="b-form-head__text iconize-qst2">Опросный лист</span>
         <span class="popup__close iconize-close iconize-close_black" onclick="fancy_close();"></span>
       </div>
-      <div class="b-popup-wrap">
+      <div class="b-form__wrap">
         <span class="b-list-popup__title b-list-popup__title_untop">Контактные данные</span>
-        <div class="b-list-popup__name-input-wrap input-wrap input-wrap_small">
+        <div class="input-wrap input-wrap_small b-form__half">
           <label for="b-list-popup__name-input" class="input-hint">
             <span class="input-hint">Наименование учреждения</span>
           </label>
-          <input class="b-list-popup__name-input input input-placeholder" id="b-list-popup__name-input" type="text" value="" />
-        </div><div class="b-list-popup__contact-input-wrap input-wrap input-wrap_small">
+          <input class="input input-placeholder" id="b-list-popup__name-input" type="text" value="" />
+        </div><div class="input-wrap input-wrap_small b-form__half b-form__half_right">
           <label for="b-list-popup__contact-input" class="input-hint">
             <span class="input-hint">Контактное лицо</span>
           </label>
-          <input class="b-list-popup__contact-input input input-placeholder" id="b-list-popup__contact-input" type="text" value="" />
+          <input class="input input-placeholder" id="b-list-popup__contact-input" type="text" value="" />
         </div>
-        <div class="b-list-popup-left-wrap">
-          <div class="b-list-popup__phone-input-wrap input-wrap input-wrap_small">
+        <div class="b-form__half">
+          <div class="input-wrap input-wrap_small b-form__half">
           <label for="b-list-popup__phone-input" class="input-hint">
             <span class="input-hint">Телефон</span>
           </label>
-          <input class="b-list-popup__phone-input input input-placeholder" id="b-list-popup__phone-input" type="tel" value="" />
-        </div><div class="b-list-popup__email-input-wrap input-wrap input-wrap_small">
+          <input class="input input-placeholder" id="b-list-popup__phone-input" type="tel" value="" />
+        </div><div class="input-wrap input-wrap_small b-form__half b-form__half_right">
           <label for="b-list-popup__email-input" class="input-hint">
             <span class="input-hint">E-Mail</span>
           </label>
-          <input class="b-list-popup__email-input input input-placeholder" id="b-list-popup__email-input" type="email" value="" />
+          <input class="input input-placeholder" id="b-list-popup__email-input" type="email" value="" />
         </div>
         </div>
         <span class="b-list-popup__title">Сфера деятельности</span>
-        <div class="b-list-popup-radio-wrap">
-          <input id="param1" class="b-list-popup-radio radio" type="radio" name="list_radio" checked/>
+        <div class="b-radio-wrap">
+          <input id="param1" class="radio" type="radio" name="list_radio" checked/>
           <label class="b-list-popup-label label" for="param1">Образовательное учреждение</label>
         </div>
-         <div class="b-list-popup-radio-wrap">
-          <input id="param2" class="b-list-popup-radio radio" type="radio" name="list_radio" />
-          <label class="b-list-popup-label label" for="param2">Учебный центр</label>
+         <div class="b-radio-wrap">
+          <input id="param2" class="radio" type="radio" name="list_radio" />
+          <label class="label" for="param2">Учебный центр</label>
         </div>
-         <div class="b-list-popup-radio-wrap">
-          <input id="param3" class="b-list-popup-radio radio" type="radio" name="list_radio" />
-          <label class="b-list-popup-label label" for="param3">Коммерческая организация</label>
+         <div class="b-radio-wrap">
+          <input id="param3" class="radio" type="radio" name="list_radio" />
+          <label class="label" for="param3">Коммерческая организация</label>
         </div>
          <span class="b-list-popup__title">Планируемый бюджет</span>
-         <div id="slider-range" class="b-list-popup-range">
-           <span class="b-list-popup-range__min">50 000 <span class="rub">&#8377</span></span>
-           <span class="b-list-popup-range__max">50 млн. <span class="rub">&#8377</span></span>
-           <span class="b-list-popup-range__cur-min">От <span class="b-list-popup-range__cur-min-value">100 000</span><span class="rub"> &#8377</span></span>
-           <span class="b-list-popup-range__cur-max">До <span class="b-list-popup-range__cur-max-value">30 млн.</span><span class="rub"> &#8377</span></span>
+         <div id="slider-range" class="b-range">
+           <span class="b-range__min">50 000 <span class="rub">&#8377</span></span>
+           <span class="b-range__max">50 млн. <span class="rub">&#8377</span></span>
+           <span class="b-range__cur-min">От <span class="b-range__cur-min-value">100 000</span><span class="rub"> &#8377</span></span>
+           <span class="b-range__cur-max">До <span class="b-range__cur-max-value">30 млн.</span><span class="rub"> &#8377</span></span>
          </div>
           <p class="b-list-popup-range__hint">Если у вас выделен определенный бюджет, вы можете отталкиваться от него</p>
           <span class="b-list-popup__title b-list-popup__title_untop">Специальности</span>
           <ul class="b-list-popup-spec">
             <li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param4" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param4">Автоматизация и мехатроника</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param5" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param5">Автомобили и автомобильное хозяйство</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param6" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param6">Аэродинамика</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param7" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param7">Аэрокосмическая техника</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param8" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param8">Биология</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param9" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param9">Биотехнологии</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param10" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param10">Вычислительная и микропроцессорная техника. Схемотехника</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param11" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param11">Коммуникации</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param12" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param12">Медицина</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param13" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param13">Науки о Земле</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param14" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param14">Нефтегазовая промышленность</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param15" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param15">Пищевые и водные технологии</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param16" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param16">Прикладная оптика - фотоника</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param17" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param17">Прикладная механика</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param34" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param34">Пищевая химия</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param18" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param18">Радиотехника. Телекоммуникации. Сети ЭВМ</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param19" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param19">Робототехника</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param20" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param20">Сельское хозяйство</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param21" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param21">Строительство</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param22" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param22">Термодинамика и Термотехника</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param23" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param23">Технология машиностроения. Обработка материалов</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param24" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param24">Транспорт</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param25" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param25">Управление Процессом</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param26" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param26">Физика</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param27" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param27">Химия</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param28" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param28">Химические технологии</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param29" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param29">Экология</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param30" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param30">Энергетика</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param31" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param31">Энергия</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param32" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param32">Электроника</label>
               </div>
             </li><li class="b-list-popup-spec__item">
-              <div class="b-list-popup-radio-wrap">
+              <div class="b-check-wrap">
                 <input id="param33" class="checkbox" type="checkbox" name="list_check"/>
                 <label class="label" for="param33">Другое</label>
               </div>
             </li>
           </ul>
           <span class="b-list-popup__title">Планируемый штат учащихся / сотрудников</span>
-          <div class="b-list-popup__staff-input-wrap input-wrap input-wrap_small">
+          <div class="input-wrap input-wrap_small">
             <label for="b-list-popup__staff-input" class="input-hint">
               <span class="input-hint">Количество мест</span>
             </label>
-            <input class="b-list-popup__staff-input input input-placeholder" id="b-list-popup__staff-input" type="text" value="" />
+            <input class="input input-placeholder" id="b-list-popup__staff-input" type="text" value="" />
           </div>
           <span class="b-list-popup__staff-qty">шт.</span>
-          <div class="b-list-popup__submit-wrap">
-           <input type="submit" id="b-list-popup__submit" class="b-list-popup__submit magenta-btn" value="Отправить">
-          </div>
+        </div>
+        <div class="b-form__submit-wrap">
+          <input type="submit" id="b-list-popup__submit" class="b-form__submit magenta-btn" value="Отправить">
+        </div>
       </form>
     </div>
-  </div>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
