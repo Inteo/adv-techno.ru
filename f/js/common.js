@@ -638,9 +638,11 @@
 
    $(".b-enum__link").hover(function() {
        $(this).parent().find(".b-enum__preitem").addClass("b-enum__preitem_hover");
+       $(this).parent().find(".b-enum__link").addClass("b-enum__link_hover");
      },
      function() {
        $(this).parent().find(".b-enum__preitem").removeClass("b-enum__preitem_hover");
+       $(this).parent().find(".b-enum__link").removeClass("b-enum__link_hover");
      });
  });
 
