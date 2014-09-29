@@ -1349,7 +1349,7 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
   }
 }
 .b-header_main .b-header__phone {
-  margin-top: 55px;
+  margin-top: 47px;
 }
 .b-header__menu {
   list-style: none;
@@ -1542,6 +1542,7 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
   font: bold 60px 'ProximaNova', 'Helvetica Neue', Helvetica, sans-serif;
   margin-top: 20px;
   text-transform: uppercase;
+  color: #fff;
   letter-spacing: .05em;
 }
 .b-main-banner__text {
@@ -1576,8 +1577,6 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
   font-size: 20px;
   color: #010101;
   letter-spacing: 0.05em;
-}
-.b-search__input {
   outline: 0;
 }
 .b-search__input-wrap label, .b-footer__input-wrap label {
@@ -1838,7 +1837,7 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
   border-radius: 0;
   border: none;
   width: 151px;
-  height: 40px;
+  height: 37px;
   padding-left: 40px;
   text-align: left;
   color: #fff;
@@ -3892,18 +3891,31 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
   max-width: 1280px;
   font-weight: normal;
 }
-.b-spec_company {
+.b-spec_company,
+.b-spec_tech {
   min-height: 0;
   background: none;
   margin-top: 30px;
 }
-.b-spec_company .b-spec__item, .b-spec_company .b-spec__item:hover {
+.b-spec_company .b-spec__item, .b-spec_company .b-spec__item:hover,
+.b-spec_tech .b-spec__item, .b-spec_tech .b-spec__item:hover{
   background: none;
+}
+.b-spec_tech .b-spec__text:hover{
+	cursor: default;
+}
+.b-spec_tech .b-spec__text {
+	color: #000;
+	font-size: 16px;
+  font-weight: bold;
 }
 .b-spec_company .b-spec__text {
   color: #fff;
   font-size: 16px;
   font-weight: bold;
+}
+.b-spec_tech .b-spec__item:hover .b-spec__text {
+  color: #000;
 }
 .b-spec_company .b-spec__item:hover .b-spec__text {
   color: #fff;
@@ -3913,6 +3925,9 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
 }
 .b-wrapper {
   padding: 45px 45px 0;
+}
+.b-wrapper_dark {
+	background: #eef3f5;
 }
 .b-company-banner__btn {
   padding: 20px 30px;
@@ -3925,7 +3940,7 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
   padding-top: 0;
 }
 .b-cut-bottom {
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 }
 .b-partners {
   background: #002b4c;
@@ -3939,11 +3954,17 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
   height: 60px;
 }
 .b-title {
-  font: bold 60px 'ProximaNova', 'Helvetica Neue', Helvetica, sans-serif;
+  font: bold 60px/70px 'ProximaNova', 'Helvetica Neue', Helvetica, sans-serif;
   letter-spacing: .05em;
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 20px;
+}
+.b-subtitle{
+	font: bold 20px/40px 'ProximaNova', 'Helvetica Neue', Helvetica, sans-serif;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  margin-top: 0;
 }
 .b-contacts__phone {
 	padding-top: 10px;
@@ -3988,5 +4009,57 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
   width: 100%;
 }
 .b-contacts .b-enum {
+	margin-bottom: 30px;
+}
+.b-tech__text {
+	font-weight: normal;
+	line-height: 35px;
+	margin-top: 30px;
+}
+.b-tech__scheme {
+	margin-top: 50px;
+	position: relative;
+	min-height: 400px;
+}
+.b-tech__scheme-tech {
+	left: 260px;
+	top: 12px;
+}
+.b-tech__scheme-text {
+	position: absolute;
+	letter-spacing: normal;
+	width: 130px;
+	line-height: 25px;
+}
+.b-quest {
+	padding-bottom: 35px;
+}
+.b-quest__input {
+	background: #fff !important;
+}
+.b-quest__input-wrap {
+	overflow: hidden;
+}
+.b-quest__submit {
+  padding: 20px 30px;
+  margin-left: 20px;
+  float: right;
+}
+.b-quest__submit:active {
+  padding: 17px 30px;
+}
+.b-quest__ico {
+	float: left;
+	width: 60px;
+	height: 60px;
+	background: #002038;
+}
+.b-tech__title {
+	font: bold 40px/70px 'ProximaNova', 'Helvetica Neue', Helvetica, sans-serif;
+	letter-spacing: .05em;
+	text-transform: uppercase;
+	padding-top: 30px;
+}
+.b-tech-spec {
 	margin-bottom: 30px;
 }
