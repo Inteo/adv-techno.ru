@@ -534,8 +534,18 @@
    }
 
    $(".b-switcher__item").click(function() {
-     $(this).parent(".b-switcher").children(".b-switcher__item").removeClass("b-switcher__item_active");
+     $(this).parent().children(".b-switcher__item").removeClass("b-switcher__item_active");
      $(this).addClass("b-switcher__item_active");
+     $(this).parent().children(".b-switcher__block").removeClass("b-switcher__block_active");
+     $(this).parent().parent().children(".b-switcher__block").removeClass("b-switcher__block_active");
+     var theClass = $(this).attr("class");
+     var theClasses = theClass.match(/\w+|"[^"]+"/g);
+     var str = theClasses.join(' ');
+     var num = parseInt(str.replace(/\D+/g, ""));
+     var cls = ".b-switcher__block_" + num;
+     $(this).parent().children(cls).addClass("b-switcher__block_active");
+     $(this).parent().parent().children(cls).addClass("b-switcher__block_active");
+     return false;
    });
    $(".b-equip__item").hover(function() {
        var height = $(this).height();
