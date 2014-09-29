@@ -3321,11 +3321,26 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
 	background-position: 0 -369px;
 }
 .b-company-banner{
-	min-height: 464px;
+	min-height: 500px;
 	background: #002b4c;
 	padding: 50px;
 	margin-bottom: 40px;
 	overflow: hidden;
+}
+.b-company-banner_half{
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+}
+.b-company-banner_half:hover{
+	cursor: pointer;
+	background: #000;
+}
+.b-company-banner_color_dark{
+	background: #00182c;
+}
+.b-company-banner_color_med{
+	background: #002038;
 }
 .b-company-banner__img{
 	float: left;
@@ -3364,6 +3379,30 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
   width: 33.333333%;
   max-width: 250px;
 }
+.b-company-banner__img_partner{
+	width: 60%;
+	margin-left: -150px;
+	margin-right: 10px;
+	position: relative;
+	max-width: 700px;
+	height: 1px;
+}
+.b-company-banner_half .b-company-banner__img_partner{
+  max-width: 550px;
+  width: 80%;
+  margin-left: 0;
+  margin-right: -150px;
+  float: right !important;
+}
+.b-company-banner_half .b-company-banner__img_partner img{
+  right: auto;
+  left: 0;
+}
+.b-company-banner__img_partner img{
+ 	position: absolute;
+ 	top: 0;
+ 	right: 0;
+}
 .b-company-banner__img-title{
 	color: #fff;
 	line-height: 25px;
@@ -3377,7 +3416,7 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
 }
 .b-company-banner__content{
   overflow: hidden;
-  padding: 32px 0 32px;
+  padding: 32px 0 0;
   max-width: 1000px;
 }
 .b-company-banner__logo{
@@ -3396,6 +3435,30 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
 	font-size: 14px;
 	line-height: 30px;
 	margin-bottom: 30px;
+}
+.b-made-in{
+	font-size: 14px;
+	line-height: 30px;
+	color: #fff;
+	margin-bottom: 20px;
+}
+.iconize-made-in{
+	margin-left: 35px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.iconize-made-in:before{
+	left: -35px;
+	top: -8px;
+	background-position: -192px -77px;
+	width: 30px;
+	height: 13px;
+}
+.iconize-made-in_usa:before{
+	background-position: -192px -90px;
+}
+.iconize-made-in_germany:before{
+	background-position: -192px -103px;
 }
 .b-enum{
 	margin-bottom: 45px;
@@ -3859,4 +3922,9 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
 	margin-top: 0;
 	padding-top: 0;
 }
-
+.b-cut-bottom{
+	margin-bottom: 0;
+}
+.b-partners{
+	background: #002b4c;
+}

@@ -298,8 +298,9 @@
  })(jQuery);
 
  $(document).ready(function() {
-   spec_resize();
-   $("input[type=number]").keydown(function(e) {
+  equalheight('.b-company-banner_half');
+  spec_resize();
+  $("input[type=number]").keydown(function(e) {
      // Allow: backspace, delete, tab, escape, enter and .
      if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
        // Allow: Ctrl+A
@@ -441,6 +442,7 @@
    $(".b-spec__item").height($(".b-spec__item").width());
  }
  $(window).resize(function() {
+  equalheight('.b-company-banner_half');
    setTimeout(function() {
      section_resize();
      fixed_scroll_resize();
@@ -660,3 +662,34 @@
      }
    }, 180);
  }
+
+equalheight = function(container){
+
+var currentTallest = 0,
+     currentRowStart = 0,
+     rowDivs = new Array(),
+     $el,
+     topPosition = 0;
+ $(container).each(function() {
+
+   $el = $(this);
+   $($el).height('auto')
+   topPostion = $el.position().top;
+
+   if (currentRowStart != topPostion) {
+     for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+       rowDivs[currentDiv].height(currentTallest);
+     }
+     rowDivs.length = 0; // empty the array
+     currentRowStart = topPostion;
+     currentTallest = $el.height();
+     rowDivs.push($el);
+   } else {
+     rowDivs.push($el);
+     currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+  }
+   for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+     rowDivs[currentDiv].height(currentTallest);
+   }
+ });
+}
