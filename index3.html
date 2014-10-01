@@ -423,302 +423,325 @@
       <div class="b-footer-form-wrap">
         <form action="" class="b-footer-form">
           <p class="b-footer-form__title">Будьте в курсе передовых технологий образования!</p>
-          <div class="b-footer__input-wrap">
-            <label for="subscribe-input" class="input-hint input-hint_subscribe">
-              <span class="input-hint input-hint_subscribe">E-Mail</span>
-            </label>
-            <input class="b-footer-form__text input-placeholder" id="subscribe-input" type="email" value="" />
-          </div>
-          <div class="b-footer-form__submit-wrap">
-            <input type="submit" id="b-footer-form__submit" class="b-footer-form__submit" value="Подписаться">
-            <label for="b-footer-form__submit" class="b-footer-form__label"></label>
-          </div>
+          <input class="b-footer-form__text input input_small input-placeholder" id="subscribe-input" type="email" value="" placeholder="E-mail"/><button id="b-footer-form__submit" class="b-footer-form__submit magenta-btn"><span class="iconize-subscribe"></span>Подписаться</button>
         </form>
       </div>
     </footer>
-  </section>
-  <div class="b-popups">
+    <div class="b-popups">
+    <div class="b-num-popup b-popup" id="b-1-popup">
+      <span class="popup__close iconize-close iconize-close_black-magenta " onclick="fancy_close();"></span>
+      <div class="b-num-popup__scroll">
+        <div class="b-num-popup__scroll-holder">
+          <div class="b-product-equip__item b-product-equip-item">
+            <div class="b-product-equip-item__img b-product-equip-item__img_popup">
+              <img src="/f/i/equip/10.jpg" alt="">
+            </div>
+            <div class="b-product-equip-item__detail">
+              <span class="b-product-equip-item__num b-product-equip-item__num_popup b-product__equip-num">1</span>
+              <p class="b-product-equip-item__title" style="margin-top: 30px;">Установка по работе с химическими реакторами</p>
+              <p class="b-product-equip-item__name">AEHC. Computer Controlled Hydrogenation Unit.</p>
+              <p class="b-product-equip-item__text">Устройство Гидрогенизации это стендовый аппарат, который регулирует степень насыщенности пищевых масел в емкости объемом 22 литра.</p>
+              <span class="b-product-equip-item__subtitle">Основные возможности:</span>
+              <ul class="b-product-equip__abil b-product-equip__abil_untop b-product-equip-abil">
+                <li class="b-product-equip-abil__item b-product-equip-abil-item">
+                  <p class="b-product-equip-abil-item__text">Изучение влияния температуры на рабочий процесс.</p>
+                </li>
+                <li class="b-product-equip-abil__item b-product-equip-abil-item">
+                  <p class="b-product-equip-abil-item__text">Изучение оказываемого воздействия на рабочий процесс устройством для перемешивания.</p>
+                </li>
+                <li class="b-product-equip-abil__item b-product-equip-abil-item">
+                  <p class="b-product-equip-abil-item__text">Изучение влияния на рабочий процесс изменения давления водородного газа.</p>
+                </li>
+                <li class="b-product-equip-abil__item b-product-equip-abil-item">
+                  <p class="b-product-equip-abil-item__text">Работа с промышленным устройством гидрогенизации, выполненным в мелком масштабе.</p>
+                </li>
+                <li class="b-product-equip-abil__item b-product-equip-abil-item">
+                  <p class="b-product-equip-abil-item__text">Определение оптимальной дозировки катализатора.</p>
+                </li>
+                <li class="b-product-equip-abil__item b-product-equip-abil-item">
+                  <p class="b-product-equip-abil-item__text">Демонстрация работы фильтра в процессе регенерации катализатора.</p>
+                </li>
+                <li class="b-product-equip-abil__item b-product-equip-abil-item">
+                  <p class="b-product-equip-abil-item__text">Изучение различных видов катализаторов.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <form class="b-question-popup b-popup b-form" id="b-question-popup">
       <div class="b-popup-head">
         <span class="b-popup-head__text iconize-qst">Задать вопрос</span>
         <span class="popup__close iconize-close" onclick="fancy_close();"></span>
       </div>
       <div class="b-popup-wrap">
-        <div class="input-wrap">
-          <label for="b-question-popup__name-input" class="input-hint">
-            <span class="input-hint">Наименование учреждения</span>
-          </label>
-          <input class="input input-placeholder" id="b-question-popup__name-input" type="text" value="" />
-        </div>
-        <div class="input-wrap b-form__half">
-        <label for="b-question-popup__phone-input" class="input-hint">
-          <span class="input-hint">Телефон</span>
-        </label>
-        <input class="input input-placeholder" id="b-question-popup__phone-input" type="tel" value="" />
-      </div><div class="input-wrap b-form__half b-form__half_right">
-        <label for="b-question-popup__email-input" class="input-hint">
-          <span class="input-hint">E-Mail</span>
-        </label>
-        <input class="input input-placeholder" id="b-question-popup__email-input" type="email" value="" />
-      </div>
-     <!--  <div class="input-wrap b-form__half iconize-input-correct">
-       <label for="b-question-popup__email-input" class="input-hint">
-         <span class="input-hint">E-Mail</span>
-       </label>
-       <input class="input input-placeholder" id="b-question-popup__email-input" type="email" value="" />
+        <input class="input input-placeholder" id="b-question-popup__name-input" type="text" value="" placeholder="Наименование учреждения"/>         
+        <input class="input b-form__half input-placeholder" id="b-question-popup__phone-input" type="tel" value="" placeholder="Телефон"/><input class="input b-form__half b-form__half_right input-placeholder" id="b-question-popup__email-input" type="email" value="" placeholder="E-Mail"/>
+        <!--  <div class="input-wrap b-form__half iconize-input-correct">
+       <input class="input input-placeholder" id="b-question-popup__email-input" type="email" value="" placeholder="E-Mail"/>
      </div> -->
-      <!-- <div class="input-wrap b-form__half iconize-input-incorrect">
-        <label for="b-question-popup__email-input" class="input-hint">
-          <span class="input-hint">E-Mail</span>
-        </label>
-        <input class="input input-placeholder" id="b-question-popup__email-input" type="email" value="" />
+        <!-- <div class="input-wrap b-form__half iconize-input-incorrect">
+        <input class="input input-placeholder" id="b-question-popup__email-input" type="email" value="" placeholder="E-Mail"/>
       </div> -->
-      <div class="input-wrap clearfix">
-        <label for="b-question-popup__text-input" class="input-hint">
-          <span class="input-hint">Ваш вопрос</span>
-        </label>
-        <textarea class="input input-area input-placeholder" id="b-question-popup__text-input"></textarea>
-      </div>
-      <div class="b-btn-wrap">
-        <input type="submit" id="b-question-popup__submit" class="magenta-btn" value="Отправить">
-        <!--<input type="submit" id="b-question-popup__submit" class="magenta-btn_inactive magenta-btn" value="Отправить"> -->
-      </div>
+        <textarea class="input input-area input-placeholder" id="b-question-popup__text-input" placeholder="Ваш вопрос"></textarea>
+        <div class="b-btn-wrap">
+          <input type="submit" id="b-question-popup__submit" class="magenta-btn" value="Отправить">
+          <!--<input type="submit" id="b-question-popup__submit" class="magenta-btn_inactive magenta-btn" value="Отправить"> -->
+        </div>
       </div>
     </form>
     <div class="b-question-ok-popup b-popup b-form" id="b-question-ok-popup">
       <div class="b-popup-wrap">
         <span class="b-popup__title">Ваш вопрос получен</span>
-        <p class="b-popup__text">Мы свяжемся с Вами<br> в самое ближайшее время!</p>
+        <p class="b-popup__text">Мы свяжемся с Вами
+          <br>в самое ближайшее время!</p>
         <div class="b-btn-wrap">
           <span class="magenta-btn" onclick="fancy_close();">Спасибо</span>
         </div>
       </div>
     </div>
-    <form class="b-list-popup b-form" id="b-list-popup">
+    <form class="b-list-popup b-popup b-form" id="b-list-popup">
       <div class="b-form__head b-form-head">
         <span class="b-form-head__text iconize-qst2">Опросный лист</span>
         <span class="popup__close iconize-close iconize-close_black" onclick="fancy_close();"></span>
       </div>
       <div class="b-form__wrap">
         <span class="b-list-popup__title b-cut-top">Контактные данные</span>
-        <div class="input-wrap input-wrap_small b-form__half">
-          <label for="b-list-popup__name-input" class="input-hint">
-            <span class="input-hint">Наименование учреждения</span>
-          </label>
-          <input class="input input-placeholder" id="b-list-popup__name-input" type="text" value="" />
-        </div><div class="input-wrap input-wrap_small b-form__half b-form__half_right">
-          <label for="b-list-popup__contact-input" class="input-hint">
-            <span class="input-hint">Контактное лицо</span>
-          </label>
-          <input class="input input-placeholder" id="b-list-popup__contact-input" type="text" value="" />
-        </div>
+        <input class="input input_small b-form__half input-placeholder" id="b-list-popup__name-input" type="text" value="" placeholder="Наименование учреждения"/><input class="input input-placeholder input_small b-form__half b-form__half_right" id="b-list-popup__contact-input" type="text" value="" placeholder="Контактное лицо"/>
         <div class="b-form__half">
-          <div class="input-wrap input-wrap_small b-form__half">
-          <label for="b-list-popup__phone-input" class="input-hint">
-            <span class="input-hint">Телефон</span>
-          </label>
-          <input class="input input-placeholder" id="b-list-popup__phone-input" type="tel" value="" />
-        </div><div class="input-wrap input-wrap_small b-form__half b-form__half_right">
-          <label for="b-list-popup__email-input" class="input-hint">
-            <span class="input-hint">E-Mail</span>
-          </label>
-          <input class="input input-placeholder" id="b-list-popup__email-input" type="email" value="" />
-        </div>
+          <input class="input input-placeholder input_small b-form__half" id="b-list-popup__phone-input" type="tel" value="" placeholder="Телефон"/><input class="input input-placeholder input_small b-form__half b-form__half_right" id="b-list-popup__email-input" type="email" value="" placeholder="E-Mail"/>
         </div>
         <span class="b-list-popup__title">Сфера деятельности</span>
         <div class="b-radio-wrap">
           <input id="param1" class="radio" type="radio" name="list_radio" checked/>
           <label class="b-list-popup-label label" for="param1">Образовательное учреждение</label>
         </div>
-         <div class="b-radio-wrap">
+        <div class="b-radio-wrap">
           <input id="param2" class="radio" type="radio" name="list_radio" />
           <label class="label" for="param2">Учебный центр</label>
         </div>
-         <div class="b-radio-wrap">
+        <div class="b-radio-wrap">
           <input id="param3" class="radio" type="radio" name="list_radio" />
           <label class="label" for="param3">Коммерческая организация</label>
         </div>
-         <span class="b-list-popup__title">Планируемый бюджет</span>
-         <div id="slider-range" class="b-range">
-           <span class="b-range__min">50 000 <span class="rub">&#8377</span></span>
-           <span class="b-range__max">50 млн. <span class="rub">&#8377</span></span>
-           <span class="b-range__cur-min">От <span class="b-range__cur-min-value">100 000</span><span class="rub"> &#8377</span></span>
-           <span class="b-range__cur-max">До <span class="b-range__cur-max-value">30 млн.</span><span class="rub"> &#8377</span></span>
-         </div>
-          <p class="b-list-popup-range__hint">Если у вас выделен определенный бюджет, вы можете отталкиваться от него</p>
-          <span class="b-list-popup__title b-cut-top">Специальности</span>
-          <ul class="b-list-popup-spec">
-            <li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param4" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param4">Автоматизация и мехатроника</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param5" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param5">Автомобили и автомобильное хозяйство</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param6" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param6">Аэродинамика</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param7" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param7">Аэрокосмическая техника</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param8" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param8">Биология</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param9" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param9">Биотехнологии</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param10" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param10">Вычислительная и микропроцессорная техника. Схемотехника</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param11" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param11">Коммуникации</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param12" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param12">Медицина</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param13" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param13">Науки о Земле</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param14" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param14">Нефтегазовая промышленность</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param15" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param15">Пищевые и водные технологии</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param16" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param16">Прикладная оптика - фотоника</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param17" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param17">Прикладная механика</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param34" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param34">Пищевая химия</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param18" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param18">Радиотехника. Телекоммуникации. Сети ЭВМ</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param19" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param19">Робототехника</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param20" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param20">Сельское хозяйство</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param21" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param21">Строительство</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param22" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param22">Термодинамика и Термотехника</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param23" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param23">Технология машиностроения. Обработка материалов</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param24" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param24">Транспорт</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param25" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param25">Управление Процессом</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param26" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param26">Физика</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param27" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param27">Химия</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param28" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param28">Химические технологии</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param29" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param29">Экология</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param30" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param30">Энергетика</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param31" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param31">Энергия</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param32" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param32">Электроника</label>
-              </div>
-            </li><li class="b-list-popup-spec__item">
-              <div class="b-check-wrap">
-                <input id="param33" class="checkbox" type="checkbox" name="list_check"/>
-                <label class="label" for="param33">Другое</label>
-              </div>
-            </li>
-          </ul>
-          <span class="b-list-popup__title">Планируемый штат учащихся / сотрудников</span>
-          <div class="input-wrap input-wrap_small">
-            <label for="b-list-popup__staff-input" class="input-hint">
-              <span class="input-hint">Количество мест</span>
-            </label>
-            <input class="input input-placeholder" id="b-list-popup__staff-input" type="text" value="" />
-          </div>
-          <span class="b-list-popup__staff-qty">шт.</span>
+        <span class="b-list-popup__title">Планируемый бюджет</span>
+        <div id="slider-range" class="b-range">
+          <span class="b-range__min">50 000
+            <span class="rub">&#8377</span>
+          </span>
+          <span class="b-range__max">50 млн.
+            <span class="rub">&#8377</span>
+          </span>
+          <span class="b-range__cur-min">От
+            <span class="b-range__cur-min-value">100 000</span>
+            <span class="rub">&#8377</span>
+          </span>
+          <span class="b-range__cur-max">До
+            <span class="b-range__cur-max-value">30 млн.</span>
+            <span class="rub">&#8377</span>
+          </span>
         </div>
-        <div class="b-form__submit-wrap">
-          <input type="submit" id="b-list-popup__submit" class="b-form__submit magenta-btn" value="Отправить">
-        </div>
-      </form>
-    </div>
+        <p class="b-list-popup-range__hint">Если у вас выделен определенный бюджет, вы можете отталкиваться от него</p>
+        <span class="b-list-popup__title b-cut-top">Специальности</span>
+        <ul class="b-list-popup-spec">
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param4" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param4">Автоматизация и мехатроника</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param5" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param5">Автомобили и автомобильное хозяйство</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param6" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param6">Аэродинамика</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param7" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param7">Аэрокосмическая техника</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param8" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param8">Биология</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param9" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param9">Биотехнологии</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param10" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param10">Вычислительная и микропроцессорная техника. Схемотехника</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param11" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param11">Коммуникации</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param12" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param12">Медицина</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param13" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param13">Науки о Земле</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param14" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param14">Нефтегазовая промышленность</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param15" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param15">Пищевые и водные технологии</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param16" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param16">Прикладная оптика - фотоника</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param17" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param17">Прикладная механика</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param34" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param34">Пищевая химия</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param18" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param18">Радиотехника. Телекоммуникации. Сети ЭВМ</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param19" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param19">Робототехника</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param20" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param20">Сельское хозяйство</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param21" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param21">Строительство</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param22" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param22">Термодинамика и Термотехника</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param23" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param23">Технология машиностроения. Обработка материалов</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param24" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param24">Транспорт</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param25" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param25">Управление Процессом</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param26" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param26">Физика</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param27" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param27">Химия</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param28" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param28">Химические технологии</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param29" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param29">Экология</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param30" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param30">Энергетика</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param31" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param31">Энергия</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param32" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param32">Электроника</label>
+            </div>
+          </li>
+          <li class="b-list-popup-spec__item">
+            <div class="b-check-wrap">
+              <input id="param33" class="checkbox" type="checkbox" name="list_check" />
+              <label class="label" for="param33">Другое</label>
+            </div>
+          </li>
+        </ul>
+        <span class="b-list-popup__title">Планируемый штат учащихся / сотрудников</span>
+        <input class="input input_small input-placeholder b-list-popup__staff-input" id="b-list-popup__staff-input" type="text" value="" placeholder="Количество мест"/>
+        <span class="b-list-popup__staff-qty">шт.</span>
+      </div>
+      <div class="b-form__submit-wrap">
+        <input type="submit" id="b-list-popup__submit" class="b-form__submit magenta-btn" value="Отправить">
+      </div>
+    </form>
+  </div>
+  </section>
 </body>
 
 </html>

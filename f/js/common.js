@@ -354,26 +354,6 @@
      }
    });
 
-   $('.input-placeholder').each(function() {
-     if ($(this).val() != '') {
-       $(this).prev().addClass('hide');
-     }
-   });
-
-   $('.input-placeholder').blur(function() {
-     if ($(this).val() == '') $(this).prev().removeClass('hide');
-   });
-
-   $('.input-placeholder').focus(function() {
-     $(this).prev().addClass('hide');
-   });
-
-   $('.input-placeholder').mouseover(function() {
-     if ($(this).val() != '') {
-       $(this).prev().addClass('hide');
-     }
-   });
-
    $(".b-question-popup-link").fancybox({
      padding: 0,
      maxWidth: 540,

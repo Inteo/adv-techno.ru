@@ -167,16 +167,7 @@
       <div class="b-footer-form-wrap">
         <form action="" class="b-footer-form">
           <p class="b-footer-form__title">Будьте в курсе передовых технологий образования!</p>
-          <div class="b-footer__input-wrap">
-            <label for="subscribe-input" class="input-hint input-hint_subscribe">
-              <span class="input-hint input-hint_subscribe">E-Mail</span>
-            </label>
-            <input class="b-footer-form__text input-placeholder" id="subscribe-input" type="email" value="" />
-          </div>
-          <div class="b-footer-form__submit-wrap">
-            <input type="submit" id="b-footer-form__submit" class="b-footer-form__submit" value="Подписаться">
-            <label for="b-footer-form__submit" class="b-footer-form__label"></label>
-          </div>
+          <input class="b-footer-form__text input input_small input-placeholder" id="subscribe-input" type="email" value="" placeholder="E-mail"/><button id="b-footer-form__submit" class="b-footer-form__submit magenta-btn"><span class="iconize-subscribe"></span>Подписаться</button>
         </form>
       </div>
     </footer>
@@ -230,42 +221,15 @@
         <span class="popup__close iconize-close" onclick="fancy_close();"></span>
       </div>
       <div class="b-popup-wrap">
-        <div class="input-wrap">
-          <label for="b-question-popup__name-input" class="input-hint">
-            <span class="input-hint">Наименование учреждения</span>
-          </label>
-          <input class="input input-placeholder" id="b-question-popup__name-input" type="text" value="" />
-        </div>
-        <div class="input-wrap b-form__half">
-          <label for="b-question-popup__phone-input" class="input-hint">
-            <span class="input-hint">Телефон</span>
-          </label>
-          <input class="input input-placeholder" id="b-question-popup__phone-input" type="tel" value="" />
-        </div>
-        <div class="input-wrap b-form__half b-form__half_right">
-          <label for="b-question-popup__email-input" class="input-hint">
-            <span class="input-hint">E-Mail</span>
-          </label>
-          <input class="input input-placeholder" id="b-question-popup__email-input" type="email" value="" />
-        </div>
+        <input class="input input-placeholder" id="b-question-popup__name-input" type="text" value="" placeholder="Наименование учреждения"/>         
+        <input class="input b-form__half input-placeholder" id="b-question-popup__phone-input" type="tel" value="" placeholder="Телефон"/><input class="input b-form__half b-form__half_right input-placeholder" id="b-question-popup__email-input" type="email" value="" placeholder="E-Mail"/>
         <!--  <div class="input-wrap b-form__half iconize-input-correct">
-       <label for="b-question-popup__email-input" class="input-hint">
-         <span class="input-hint">E-Mail</span>
-       </label>
-       <input class="input input-placeholder" id="b-question-popup__email-input" type="email" value="" />
+       <input class="input input-placeholder" id="b-question-popup__email-input" type="email" value="" placeholder="E-Mail"/>
      </div> -->
         <!-- <div class="input-wrap b-form__half iconize-input-incorrect">
-        <label for="b-question-popup__email-input" class="input-hint">
-          <span class="input-hint">E-Mail</span>
-        </label>
-        <input class="input input-placeholder" id="b-question-popup__email-input" type="email" value="" />
+        <input class="input input-placeholder" id="b-question-popup__email-input" type="email" value="" placeholder="E-Mail"/>
       </div> -->
-        <div class="input-wrap clearfix">
-          <label for="b-question-popup__text-input" class="input-hint">
-            <span class="input-hint">Ваш вопрос</span>
-          </label>
-          <textarea class="input input-area input-placeholder" id="b-question-popup__text-input"></textarea>
-        </div>
+        <textarea class="input input-area input-placeholder" id="b-question-popup__text-input" placeholder="Ваш вопрос"></textarea>
         <div class="b-btn-wrap">
           <input type="submit" id="b-question-popup__submit" class="magenta-btn" value="Отправить">
           <!--<input type="submit" id="b-question-popup__submit" class="magenta-btn_inactive magenta-btn" value="Отправить"> -->
@@ -289,31 +253,9 @@
       </div>
       <div class="b-form__wrap">
         <span class="b-list-popup__title b-cut-top">Контактные данные</span>
-        <div class="input-wrap input-wrap_small b-form__half">
-          <label for="b-list-popup__name-input" class="input-hint">
-            <span class="input-hint">Наименование учреждения</span>
-          </label>
-          <input class="input input-placeholder" id="b-list-popup__name-input" type="text" value="" />
-        </div>
-        <div class="input-wrap input-wrap_small b-form__half b-form__half_right">
-          <label for="b-list-popup__contact-input" class="input-hint">
-            <span class="input-hint">Контактное лицо</span>
-          </label>
-          <input class="input input-placeholder" id="b-list-popup__contact-input" type="text" value="" />
-        </div>
+        <input class="input input_small b-form__half input-placeholder" id="b-list-popup__name-input" type="text" value="" placeholder="Наименование учреждения"/><input class="input input-placeholder input_small b-form__half b-form__half_right" id="b-list-popup__contact-input" type="text" value="" placeholder="Контактное лицо"/>
         <div class="b-form__half">
-          <div class="input-wrap input-wrap_small b-form__half">
-            <label for="b-list-popup__phone-input" class="input-hint">
-              <span class="input-hint">Телефон</span>
-            </label>
-            <input class="input input-placeholder" id="b-list-popup__phone-input" type="tel" value="" />
-          </div>
-          <div class="input-wrap input-wrap_small b-form__half b-form__half_right">
-            <label for="b-list-popup__email-input" class="input-hint">
-              <span class="input-hint">E-Mail</span>
-            </label>
-            <input class="input input-placeholder" id="b-list-popup__email-input" type="email" value="" />
-          </div>
+          <input class="input input-placeholder input_small b-form__half" id="b-list-popup__phone-input" type="tel" value="" placeholder="Телефон"/><input class="input input-placeholder input_small b-form__half b-form__half_right" id="b-list-popup__email-input" type="email" value="" placeholder="E-Mail"/>
         </div>
         <span class="b-list-popup__title">Сфера деятельности</span>
         <div class="b-radio-wrap">
@@ -536,12 +478,7 @@
           </li>
         </ul>
         <span class="b-list-popup__title">Планируемый штат учащихся / сотрудников</span>
-        <div class="input-wrap input-wrap_small">
-          <label for="b-list-popup__staff-input" class="input-hint">
-            <span class="input-hint">Количество мест</span>
-          </label>
-          <input class="input input-placeholder" id="b-list-popup__staff-input" type="text" value="" />
-        </div>
+        <input class="input input_small input-placeholder b-list-popup__staff-input" id="b-list-popup__staff-input" type="text" value="" placeholder="Количество мест"/>
         <span class="b-list-popup__staff-qty">шт.</span>
       </div>
       <div class="b-form__submit-wrap">

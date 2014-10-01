@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="/f/css/jquery.mCustomScrollbar.css">
   <script src="/f/js/jquery-1.10.2.min.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
-   <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Open+Sans:400,800,600&subset=all" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Open+Sans:400,800,600&subset=all" rel="stylesheet">
   <script src="/f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
   <script src="/f/js/jquery-ui-1.10.4.min.js"></script>
   <script src="/f/js/jquery.touchSwipe.min.js"></script>
@@ -24,12 +24,13 @@
   <script src="/f/js/common.js"></script>
   <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
 </head>
+
 <body>
   <section class="b-main">
     <header class="b-header   clearfix">
       <a href="/" class="b-header__logo">
         <img src="/f/i/logo-small.png" alt="" class="b-header__logo-img">
-        <h1 class="b-header__logo-text">Передовые технологии</h1>
+        <p class="b-header__logo-text">Передовые технологии</p>
       </a>
       <div class="b-header-btns">
         <div class="scroll-btn_fvr scroll-btn iconize-fvr">
@@ -59,48 +60,73 @@
         </ul>
       </div>
     </header>
-    <section class="b-partners">
-      <section class="b-company-banner b-cut-bottom">
-        <div class="b-company-banner__img b-company-banner__img_no-shadow b-company-banner__img_partner">
-          <img src="/f/i/partner1.png" alt="">
-        </div>
-        <div class="b-company-banner__content">
-          <img src="/f/i/fabric1-3.png" alt="" class="b-company-banner__logo">
-          <h2 class="b-company-banner__title">№1 среди европейских производителей</h2>
-          <div class="b-made-in"><span class="iconize-made-in"></span>Made in Spain</div>
-          <p class="b-company-banner__text">Более 30 лет Edibon является лидером в области разработки и производства аппаратно-программных средств автоматизации измерений, диагностики, управления и моделирования в широком спектре приложений.</p>
-        </div>
-      </section>
-      <section class="b-company-banner b-company-banner_color_dark b-company-banner_half b-cut-bottom">
-        <div class="b-company-banner__img b-company-banner__img_no-shadow b-company-banner__img_partner">
-          <img src="/f/i/partner2.png" alt="" style="left: -80px;">
-        </div>
-        <div class="b-company-banner__content">
-          <img src="/f/i/fabric2-2.png" alt="" class="b-company-banner__logo">
-          <div class="b-made-in"><span class="iconize-made-in iconize-made-in_usa"></span>Made in USA</div>
-          <p class="b-company-banner__text">Более 30 лет National Instruments является лидером в области разработки и производства аппаратно-программных средств автоматизации измерений, диагностики, управления и моделирования в широком спектре приложений.</p>
-        </div>
-      </section><section class="b-company-banner b-company-banner_color_med b-company-banner_half b-cut-bottom">
-        <div class="b-company-banner__img b-company-banner__img_no-shadow b-company-banner__img_partner">
-          <img src="/f/i/partner3.png" alt="" style="left: -30px;">
-        </div>
-        <div class="b-company-banner__content">
-          <img src="/f/i/fabric3.png" alt="" class="b-company-banner__logo">
-          <div class="b-made-in"><span class="iconize-made-in iconize-made-in_germany"></span>Made in Germany</div>
-          <p class="b-company-banner__text">Более 100 лет PHYWE занимаются разработкой, производством, поставками и установкой научного оборудования экспериментов систем решения для школьного образования и исследовательской деятельности.</p>
-        </div>
-      </section>
+    <section class="b-news">
+    	<div class="b-wrapper">
+        <h1 class="b-title">Вопросы и ответы</h1>
+        <form class="b-quest">
+          <div class="b-quest__ico iconize-qst"></div>
+          <div class="b-quest__submit-wrap">
+            <input id="quest__submit" class="magenta-btn b-quest__submit" type="submit" value="Отправить" />
+          </div>
+          <div class="b-quest__input-wrap">
+            <input class="b-quest__input input-placeholder input" id="quest-input" type="text" value="" placeholder="Задайте свой вопрос"/>
+          </div>
+        </form>
+        <section class="b-news__holder">
+	        <div class="b-news__item b-ico-arrowed b-ico-arrowed_grey">
+        		<h2 class="b-news__item-title">Каковы гарантийные обязательства на продукцию?</h2>
+        		<p class="b-news__item-text">Гарантия на продукцию наших партнеров варируется в пределах 12-24 месяца, в зависимости от производителя и оборудования.</p>
+	        </div>
+	        <div class="b-news__item b-ico-arrowed b-ico-arrowed_grey">
+        		<h2 class="b-news__item-title">Какая схема оплаты при заказе оборудования?</h2>
+        		<p class="b-news__item-text">Мы предоставляем гибкую систему скидок и рассрочки на все предоставляемое оборудование. Так же мы подбираем индивидуальные способы и формы оплаты для каждого нашего клиента.</p>
+	        </div>
+	        <div class="b-news__item b-ico-arrowed b-ico-arrowed_grey">
+        		<h2 class="b-news__item-title">Каков срок поставки?</h2>
+        		<p class="b-news__item-text">Поставка производится в течение 2-х недель с момента оформления заказы и подписания договора.</p>
+	        </div>
+	        <div class="b-news__item b-ico-arrowed b-ico-arrowed_grey">
+        		<h2 class="b-news__item-title">Проходит ли обучение преподавателей?</h2>
+        		<p class="b-news__item-text">Мы предоставляем бесплатные обучающие курсы для преподавателей ВУЗов и других учреждений.</p>
+	        </div>
+	        <div class="b-news__item b-ico-arrowed b-ico-arrowed_grey">
+        		<h2 class="b-news__item-title">Каковы гарантийные обязательства на продукцию?</h2>
+        		<p class="b-news__item-text">Гарантия на продукцию наших партнеров варируется в пределах 12-24 месяца, в зависимости от производителя и оборудования.</p>
+	        </div>
+	        <div class="b-news__item b-ico-arrowed b-ico-arrowed_grey">
+        		<h2 class="b-news__item-title">Каковы гарантийные обязательства на продукцию?</h2>
+        		<p class="b-news__item-text">Гарантия на продукцию наших партнеров варируется в пределах 12-24 месяца, в зависимости от производителя и оборудования.</p>
+	        </div>
+	        <div class="b-news__item b-ico-arrowed b-ico-arrowed_grey">
+        		<h2 class="b-news__item-title">Каковы гарантийные обязательства на продукцию?</h2>
+        		<p class="b-news__item-text">Гарантия на продукцию наших партнеров варируется в пределах 12-24 месяца, в зависимости от производителя и оборудования.</p>
+	        </div>
+	        <div class="b-news__item b-ico-arrowed b-ico-arrowed_grey">
+        		<h2 class="b-news__item-title">Каковы гарантийные обязательства на продукцию?</h2>
+        		<p class="b-news__item-text">Гарантия на продукцию наших партнеров варируется в пределах 12-24 месяца, в зависимости от производителя и оборудования.</p>
+	        </div>
+        </section>
+      </div>
     </section>
     <footer class="b-footer clearfix">
       <ul class="b-footer-menu">
         <li class="b-footer-menu__item"><a href="#" class="link">Каталог</a>
-        </li><li class="b-footer-menu__item"><a href="#" class="link">О компании</a>
-        </li><li class="b-footer-menu__item"><a href="#" class="link">Партнеры</a>
-        </li><li class="b-footer-menu__item"><a href="#" class="link">Новости</a>
-        </li><li class="b-footer-menu__item"><a class="b-list-popup-link link" href="#b-list-popup">Доставка</a>
-        </li><li class="b-footer-menu__item"><a class="b-question-popup-link link" href="#b-question-popup">Вопросы и ответы</a>
-        </li><li class="b-footer-menu__item"><a class="b-question-ok-popup-link link" href="#b-question-ok-popup">Контакты</a>
-        </li><li class="b-footer-menu__item b-footer-menu__item_phone"><span class="iconize-phone">8 (800) 542 23 43</span></li>
+        </li>
+        <li class="b-footer-menu__item"><a href="#" class="link">О компании</a>
+        </li>
+        <li class="b-footer-menu__item"><a href="#" class="link">Партнеры</a>
+        </li>
+        <li class="b-footer-menu__item"><a href="#" class="link">Новости</a>
+        </li>
+        <li class="b-footer-menu__item"><a class="b-list-popup-link link" href="#b-list-popup">Доставка</a>
+        </li>
+        <li class="b-footer-menu__item"><a class="b-question-popup-link link" href="#b-question-popup">Вопросы и ответы</a>
+        </li>
+        <li class="b-footer-menu__item"><a class="b-question-ok-popup-link link" href="#b-question-ok-popup">Контакты</a>
+        </li>
+        <li class="b-footer-menu__item b-footer-menu__item_phone">
+          <span class="iconize-phone">8 (800) 542 23 43</span>
+        </li>
       </ul>
       <a href="#" class="b-footer-made-by">
         <span class="b-footer-made-by__text">Создание сайта</span>
@@ -431,15 +457,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
