@@ -353,7 +353,22 @@
        }
      }
    });
-
+   $(".b-request-popup-link").click(function() {
+     $.fancybox.open({
+       padding: 0,
+       maxWidth: 540,
+       minWidth: 540,
+       minHeight: 680,
+       href: '#b-request-popup',
+       scrolling: 'no',
+       helpers: {
+         overlay: {
+           locked: true
+         }
+       }
+     });
+     return false;
+   });
    $(".b-question-popup-link").fancybox({
      padding: 0,
      maxWidth: 540,
@@ -528,10 +543,12 @@
      return false;
    });
    $(".b-equip__item").hover(function() {
-       var height = $(this).height();
-       $(this).find(".b-equip__item-text").hide();
-       $(this).find(".b-equip-control").show();
-       $(this).height(height);
+       if(!$(this).parent().hasClass("b-equip_favorite")) {
+         var height = $(this).height();
+         $(this).find(".b-equip__item-text").hide();
+         $(this).find(".b-equip-control").show();
+         $(this).height(height);
+       }
      },
      function() {
        $(this).find(".b-equip__item-text").show();
