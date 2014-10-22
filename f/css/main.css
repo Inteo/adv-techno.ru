@@ -2377,20 +2377,30 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
   height: 746px;
   text-align: center;
   background: url(/f/i/food-tech-banner.jpg) no-repeat;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.b-scroll-banner:before,
+.b-scroll-banner:after {
+  content: '';
+  display: table;
 }
 .b-scroll-banner_small {
   width: 60px;
 }
 .b-scroll-banner__icon {
-  background: url(/f/i/flask-icon.png) no-repeat;
-  margin: auto;
-  display: inline-block;
-  background-size: 100%;
-  margin-top: 65%;
-  width: 30%;
-  padding-top: 45%;
+  margin: 200px auto auto;
   max-width: 75px;
+  width: 30%;
 }
+.b-scroll-banner__icon img {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 100%;
+}
+
 .b-scroll-banner__text {
   display: block;
   width: 80%;
@@ -3817,27 +3827,6 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
 .b-scroll-banner__btn.iconize-flask:hover:before {
   background-position: 0 -250px;
 }
-.fixed-scroll {
-  background: #eef3f5;
-  display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 20;
-  width: 100%;
-  min-width: 1000px;
-  margin-top: 0;
-}
-.fixed-scroll:after {
-  background: none;
-}
-.fixed-scroll__title {
-  font: bold 20px/60px 'ProximaNova', 'Helvetica Neue', Helvetica, sans-serif;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-  display: inline-block;
-  padding: 0 30px;
-}
 .b-num-popup {
   width: 980px;
   height: 430px;
@@ -4146,3 +4135,4 @@ input[type='submit'].btn-block, input[type='reset'].btn-block, input[type='butto
   width: 21px;
   height: 21px;
 }
+

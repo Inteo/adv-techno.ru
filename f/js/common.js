@@ -636,6 +636,7 @@
  }
  $(function() {
    $(window).scroll(function() {
+
      var h_hght = 600;
      var top = $(this).scrollTop();
      if (top > h_hght) {
@@ -700,3 +701,6 @@ var currentTallest = 0,
    }
  });
 }
+$(function(){
+  $(".b-scroll-banner").Stickyfill();
+});
